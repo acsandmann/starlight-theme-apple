@@ -1,0 +1,87 @@
+.sidebar-pane {
+  border-inline-end: 1px solid var(--apple-border-subtle);
+  background: var(--apple-sidebar-background);
+}
+.sidebar-content {
+  padding-top: 1rem;
+  scrollbar-color: var(--apple-border) transparent;
+}
+.sidebar-content .top-level {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+.sidebar-content .top-level > li {
+  margin-block: 0;
+}
+.sidebar-content .top-level > li + li:has(details) {
+  margin-top: 1.05rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--apple-border-subtle);
+}
+.sidebar-content summary {
+  min-height: 2rem;
+  padding: 0.34375rem 0.55rem;
+  color: var(--apple-foreground);
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: -0.005em;
+}
+.sidebar-content .large,
+.sidebar-content a.large {
+  padding-inline: 0.55rem;
+  font-size: 0.875rem;
+}
+.sidebar-content summary:hover,
+.sidebar-content summary:focus-visible {
+  background: var(--apple-selection);
+  color: var(--apple-link);
+}
+.sidebar-content details[open] > summary {
+  color: var(--apple-foreground);
+}
+.sidebar-content .caret {
+  color: var(--apple-tertiary-foreground);
+}
+.sidebar-content ul ul {
+  margin-inline-start: 0.55rem;
+  padding-inline-start: 0.55rem;
+  border-inline-start: 1px solid var(--apple-border-subtle);
+}
+.sidebar-content li {
+  border: 0;
+  padding: 0;
+}
+.sidebar-content a {
+  min-height: 2rem;
+  margin-block: 1px;
+  padding: 0.34375rem 0.55rem;
+  border-radius: var(--apple-radius-sm);
+  color: var(--apple-secondary-foreground);
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.3125rem;
+  text-decoration: none;
+}
+.sidebar-content a:hover {
+  background: var(--apple-selection);
+  color: var(--apple-link);
+}
+.sidebar-content a:active {
+  background: var(--apple-pressed);
+}
+.sidebar-content a:focus-visible {
+  background: var(--apple-selection);
+  color: var(--apple-link);
+  outline-offset: -2px;
+}
+.sidebar-content a[aria-current="page"] {
+  background: var(--apple-surface);
+  color: var(--apple-foreground);
+  font-weight: 600;
+}
+.sidebar-content a[aria-current="page"]:hover,
+.sidebar-content a[aria-current="page"]:focus-visible {
+  background: var(--apple-pressed);
+  color: var(--apple-foreground);
+}

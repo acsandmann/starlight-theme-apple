@@ -1,0 +1,92 @@
+header.header {
+  height: var(--apple-header-height);
+  border-bottom: 1px solid var(--apple-border-subtle);
+  background: var(--apple-header-background);
+  color: var(--apple-foreground);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  backdrop-filter: saturate(180%) blur(20px);
+}
+header.header > .header {
+  height: 100%;
+  padding-inline: clamp(1rem, 2.4vw, 2rem);
+}
+.site-title {
+  min-width: 0;
+  overflow: hidden;
+  color: var(--apple-foreground);
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.site-title:hover {
+  color: var(--apple-link);
+}
+.right-group {
+  gap: 0.35rem;
+}
+.social-icons {
+  gap: 0.2rem;
+}
+.social-icons::after {
+  display: none;
+}
+.social-icons a,
+starlight-theme-select,
+starlight-lang-select {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2rem;
+  min-height: 2rem;
+  border-radius: var(--apple-radius-sm);
+  color: var(--apple-secondary-foreground);
+}
+.social-icons a:hover,
+starlight-theme-select:hover,
+starlight-lang-select:hover {
+  background: var(--apple-selection);
+  color: var(--apple-link);
+}
+.social-icons a:active,
+starlight-theme-select:active,
+starlight-lang-select:active {
+  background: var(--apple-pressed);
+}
+starlight-menu-button button {
+  display: inline-grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  color: var(--apple-foreground);
+}
+starlight-menu-button button:hover {
+  background: var(--apple-selection);
+  color: var(--apple-link);
+}
+starlight-menu-button[aria-expanded="true"] button,
+starlight-menu-button button:active {
+  background: var(--apple-pressed);
+  color: var(--apple-link);
+}
+@media (min-width: 50rem) {
+  header.header > .header > div.sl-flex:has(site-search) {
+    justify-self: end;
+    min-width: 15rem;
+  }
+  :is(starlight-theme-select, starlight-lang-select) {
+    padding-inline-start: 0.35rem;
+    border: 1px solid transparent;
+  }
+  :is(starlight-theme-select, starlight-lang-select):hover {
+    border-color: var(--apple-border-subtle);
+  }
+  :is(starlight-theme-select, starlight-lang-select) > label > select {
+    min-height: 2rem;
+    padding-block: 0.25rem;
+  }
+}

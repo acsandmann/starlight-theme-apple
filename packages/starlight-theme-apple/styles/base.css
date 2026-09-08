@@ -1,0 +1,104 @@
+html {
+  scroll-padding-top: calc(var(--apple-header-height) + 1.5rem);
+  text-rendering: optimizeLegibility;
+}
+body {
+  background: var(--apple-background);
+  color: var(--apple-foreground);
+  font-family: var(--apple-font-sans);
+  font-size: 1.0625rem;
+  line-height: 1.4706;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+::selection {
+  background: color-mix(in srgb, var(--apple-link) 28%, transparent);
+}
+:focus-visible {
+  outline: 2px solid var(--apple-link);
+  outline-offset: 3px;
+}
+a {
+  transition:
+    color var(--apple-transition),
+    background-color var(--apple-transition),
+    border-color var(--apple-transition);
+}
+button,
+[role="button"],
+summary,
+input,
+select {
+  transition:
+    color var(--apple-transition),
+    background-color var(--apple-transition),
+    border-color var(--apple-transition),
+    box-shadow var(--apple-transition),
+    opacity var(--apple-transition),
+    transform 80ms ease;
+}
+button:active:not(:disabled),
+[role="button"]:active:not([aria-disabled="true"]) {
+  transform: scale(0.97);
+}
+:is(button, input, select, summary, a)[aria-disabled="true"],
+button:disabled,
+input:disabled,
+select:disabled {
+  cursor: not-allowed;
+  opacity: var(--apple-disabled-opacity);
+}
+.main-frame {
+  background: var(--apple-background);
+}
+.main-pane {
+  min-width: 0;
+}
+.main-pane main {
+  position: relative;
+}
+.content-panel {
+  padding-block: 0;
+}
+.content-panel + .content-panel,
+.main-pane > main > .content-panel:last-of-type {
+  border-top: 0;
+}
+.sl-container {
+  max-width: var(--apple-content-width);
+}
+.sl-banner {
+  max-width: var(--apple-content-width);
+  margin-block: 2rem 1rem;
+  margin-inline: var(--sl-content-pad-x);
+  padding: 0.875rem 1rem;
+  border: 1px solid var(--apple-border);
+  border-radius: var(--apple-radius-sm);
+  background: var(--apple-surface);
+  box-shadow: none;
+  color: var(--apple-foreground);
+  text-align: start;
+}
+.sl-banner a {
+  color: var(--apple-link);
+}
+[data-has-sidebar] main:has(.sl-banner) {
+  display: grid;
+}
+@media (min-width: 72rem) {
+  .sl-banner {
+    margin-inline: auto;
+  }
+  [data-has-sidebar] .sl-banner {
+    justify-self: end;
+    margin-inline: var(--sl-content-pad-x);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}

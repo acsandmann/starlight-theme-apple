@@ -1,0 +1,96 @@
+:root {
+  color-scheme: dark;
+  --apple-background: #111;
+  --apple-sidebar-background: #161616;
+  --apple-surface: #2a2a2a;
+  --apple-surface-raised: #1c1c1e;
+  --apple-foreground: #fff;
+  --apple-secondary-foreground: #ccc;
+  --apple-tertiary-foreground: #999;
+  --apple-border: #575757;
+  --apple-border-subtle: rgba(255, 255, 255, 0.12);
+  --apple-code-background: #2a2a2a;
+  --apple-link: #09f;
+  --apple-link-hover: #40b3ff;
+  --apple-selection: rgba(0, 153, 255, 0.16);
+  --apple-pressed: rgba(0, 153, 255, 0.24);
+  --apple-control-primary-text: #000;
+  --apple-disabled-opacity: 0.42;
+  --apple-header-background: rgba(17, 17, 17, 0.82);
+  --apple-note: #64d2ff;
+  --apple-warning: #ff9f0a;
+  --apple-danger: #ff6961;
+  --apple-success: #30d158;
+  --apple-font-sans:
+    -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI", system-ui,
+    Arial, sans-serif;
+  --apple-font-mono:
+    ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+    monospace;
+  --apple-header-height: 3.25rem;
+  --apple-sidebar-width: 18.5rem;
+  --apple-toc-width: 12rem;
+  --apple-content-width: 51.25rem;
+  --apple-radius-sm: 0.25rem;
+  --apple-radius: 0.5rem;
+  --apple-transition: 150ms ease;
+  --sl-font: var(--apple-font-sans);
+  --sl-font-mono: var(--apple-font-mono);
+  --sl-nav-height: var(--apple-header-height);
+  --sl-sidebar-width: var(--apple-sidebar-width);
+  --sl-content-width: var(--apple-content-width);
+  --sl-content-pad-x: clamp(1.25rem, 3vw, 2.5rem);
+  --sl-color-accent-low: #132f4d;
+  --sl-color-accent: var(--apple-link);
+  --sl-color-accent-high: #a8d1ff;
+  --sl-color-white: var(--apple-foreground);
+  --sl-color-gray-1: #e5e5ea;
+  --sl-color-gray-2: #c7c7cc;
+  --sl-color-gray-3: var(--apple-secondary-foreground);
+  --sl-color-gray-4: var(--apple-tertiary-foreground);
+  --sl-color-gray-5: var(--apple-border);
+  --sl-color-gray-6: var(--apple-surface);
+  --sl-color-gray-7: #242426;
+  --sl-color-black: var(--apple-background);
+  --sl-color-bg: var(--apple-background);
+  --sl-color-bg-nav: var(--apple-header-background);
+  --sl-color-bg-sidebar: var(--apple-sidebar-background);
+  --sl-color-hairline: var(--apple-border);
+  --sl-color-hairline-light: var(--apple-border-subtle);
+  --sl-text-body: 1.0625rem;
+  --sl-text-h1: 2.5rem;
+  --sl-text-h2: 2rem;
+  --sl-text-h3: 1.75rem;
+  --sl-text-h4: 1.5rem;
+  --sl-mobile-toc-height: 3.25rem;
+  --sl-content-gap-y: 1rem;
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+  --apple-background: #fff;
+  --apple-sidebar-background: #f7f7f7;
+  --apple-surface: #f0f0f0;
+  --apple-surface-raised: #fff;
+  --apple-foreground: #000;
+  --apple-secondary-foreground: #666;
+  --apple-tertiary-foreground: #767676;
+  --apple-border: #ccc;
+  --apple-border-subtle: rgba(0, 0, 0, 0.12);
+  --apple-code-background: #f0f0f0;
+  --apple-link: #36f;
+  --apple-link-hover: #174ea6;
+  --apple-selection: rgba(51, 102, 255, 0.09);
+  --apple-pressed: rgba(51, 102, 255, 0.16);
+  --apple-control-primary-text: #fff;
+  --apple-header-background: rgba(255, 255, 255, 0.82);
+  --sl-color-accent-low: #e8f2ff;
+  --sl-color-accent-high: #004b99;
+  --sl-color-gray-1: #2c2c2e;
+  --sl-color-gray-2: #48484a;
+  --sl-color-gray-3: var(--apple-secondary-foreground);
+  --sl-color-gray-4: var(--apple-tertiary-foreground);
+  --sl-color-gray-5: var(--apple-border);
+  --sl-color-gray-6: #e8e8ed;
+  --sl-color-gray-7: var(--apple-sidebar-background);
+}

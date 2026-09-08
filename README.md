@@ -1,6 +1,6 @@
-# `starlight-theme-apple` 🎱
+# `starlight-theme-apple`
 
-Starlight theme inspired by the Next.js docs.
+An Astro Starlight theme inspired by the layout, typography, and navigation of Apple Developer Documentation.
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/4360fe86-33c2-46ab-88dd-bdefab3f2822/deploy-status)](https://app.netlify.com/projects/starlight-theme-apple/deploys)
 

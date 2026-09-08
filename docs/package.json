@@ -2,7 +2,7 @@
   "name": "starlight-theme-apple-docs",
   "version": "0.0.1",
   "private": true,
-  "description": "Starlight theme inspired by the Next.js docs.",
+  "description": "Documentation and visual test site for Starlight Theme Apple Docs.",
   "homepage": "https://starlight-theme-apple.netlify.app/",
   "bugs": {
     "url": "https://github.com/acsandmann/starlight-theme-apple/issues"
@@ -24,8 +24,7 @@
   },
   "dependencies": {
     "@astrojs/starlight": "^0.41.7",
-    "@acsandmann/starlight-plugins-docs-components": "^0.6.0",
-    "astro": "^6.4.8",
+    "astro": "^7.0.2",
     "sharp": "^0.35.3",
     "starlight-links-validator": "^0.25.3",
     "starlight-theme-apple": "workspace:*"

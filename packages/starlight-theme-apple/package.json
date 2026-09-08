@@ -1,0 +1,43 @@
+{
+  "name": "starlight-theme-apple",
+  "version": "0.4.0",
+  "description": "An Apple Developer Documentation-inspired theme for Astro Starlight.",
+  "keywords": [
+    "starlight",
+    "theme",
+    "apple-developer-documentation",
+    "docs",
+    "black",
+    "dark"
+  ],
+  "homepage": "https://starlight-theme-apple.netlify.app/",
+  "bugs": {
+    "url": "https://github.com/acsandmann/starlight-theme-apple/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/acsandmann/starlight-theme-apple.git",
+    "directory": "packages/starlight-theme-apple"
+  },
+  "license": "MIT",
+  "author": "trueberryless <trueberryless@gmail.com> (https://felixs.dev)",
+  "type": "module",
+  "exports": {
+    ".": "./index.ts",
+    "./styles.css": "./styles.css",
+    "./styles/*": "./styles/*"
+  },
+  "devDependencies": {
+    "@astrojs/starlight": "^0.41.7",
+    "astro": "^7.0.2"
+  },
+  "peerDependencies": {
+    "@astrojs/starlight": ">=0.38"
+  },
+  "engines": {
+    "node": ">=22.23.2"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
