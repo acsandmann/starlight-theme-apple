@@ -1,4 +1,4 @@
-# `starlight-theme-next`
+# `starlight-theme-apple`
 
 Starlight theme inspired by the Next.js docs.
 
@@ -14,6 +14,6 @@ Content can be found in the [`src/content/docs/`](./src/content/docs/) directory
 
 ## License
 
-Licensed under the MIT License, Copyright © trueberryless-org.
+Licensed under the MIT License, Copyright © acsandmann.
 
 See [LICENSE](/LICENSE) for more information.

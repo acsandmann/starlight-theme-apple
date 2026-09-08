@@ -2,7 +2,7 @@ import type { StarlightPlugin } from "@astrojs/starlight/types";
 
 export default function starlightThemeNext(): StarlightPlugin {
   return {
-    name: "starlight-theme-next",
+    name: "starlight-theme-apple",
     hooks: {
       "config:setup"({ config, updateConfig }) {
         const userExpressiveCodeConfig =
@@ -13,25 +13,25 @@ export default function starlightThemeNext(): StarlightPlugin {
         updateConfig({
           customCss: [
             ...(config.customCss ?? []),
-            "starlight-theme-next/fonts/geist-mono/100.css",
-            "starlight-theme-next/fonts/geist-mono/200.css",
-            "starlight-theme-next/fonts/geist-mono/300.css",
-            "starlight-theme-next/fonts/geist-mono/400.css",
-            "starlight-theme-next/fonts/geist-mono/500.css",
-            "starlight-theme-next/fonts/geist-mono/600.css",
-            "starlight-theme-next/fonts/geist-mono/700.css",
-            "starlight-theme-next/fonts/geist-mono/800.css",
-            "starlight-theme-next/fonts/geist-mono/900.css",
-            "starlight-theme-next/fonts/geist-sans/100.css",
-            "starlight-theme-next/fonts/geist-sans/200.css",
-            "starlight-theme-next/fonts/geist-sans/300.css",
-            "starlight-theme-next/fonts/geist-sans/400.css",
-            "starlight-theme-next/fonts/geist-sans/500.css",
-            "starlight-theme-next/fonts/geist-sans/600.css",
-            "starlight-theme-next/fonts/geist-sans/700.css",
-            "starlight-theme-next/fonts/geist-sans/800.css",
-            "starlight-theme-next/fonts/geist-sans/900.css",
-            "starlight-theme-next/styles.css",
+            "starlight-theme-apple/fonts/geist-mono/100.css",
+            "starlight-theme-apple/fonts/geist-mono/200.css",
+            "starlight-theme-apple/fonts/geist-mono/300.css",
+            "starlight-theme-apple/fonts/geist-mono/400.css",
+            "starlight-theme-apple/fonts/geist-mono/500.css",
+            "starlight-theme-apple/fonts/geist-mono/600.css",
+            "starlight-theme-apple/fonts/geist-mono/700.css",
+            "starlight-theme-apple/fonts/geist-mono/800.css",
+            "starlight-theme-apple/fonts/geist-mono/900.css",
+            "starlight-theme-apple/fonts/geist-sans/100.css",
+            "starlight-theme-apple/fonts/geist-sans/200.css",
+            "starlight-theme-apple/fonts/geist-sans/300.css",
+            "starlight-theme-apple/fonts/geist-sans/400.css",
+            "starlight-theme-apple/fonts/geist-sans/500.css",
+            "starlight-theme-apple/fonts/geist-sans/600.css",
+            "starlight-theme-apple/fonts/geist-sans/700.css",
+            "starlight-theme-apple/fonts/geist-sans/800.css",
+            "starlight-theme-apple/fonts/geist-sans/900.css",
+            "starlight-theme-apple/styles.css",
           ],
           expressiveCode:
             config.expressiveCode === false

@@ -1,20 +1,20 @@
 import starlight from "@astrojs/starlight";
-import starlightPluginsDocsComponents from "@trueberryless-org/starlight-plugins-docs-components";
+import starlightPluginsDocsComponents from "@acsandmann/starlight-plugins-docs-components";
 import { defineConfig } from "astro/config";
 import starlightLinksValidator from "starlight-links-validator";
-import starlightThemeNext from "starlight-theme-next";
+import starlightThemeNext from "starlight-theme-apple";
 
 export default defineConfig({
   integrations: [
     starlight({
       editLink: {
         baseUrl:
-          "https://github.com/trueberryless-org/starlight-theme-next/edit/main/docs/",
+          "https://github.com/acsandmann/starlight-theme-apple/edit/main/docs/",
       },
       plugins: [
         starlightThemeNext(),
         starlightPluginsDocsComponents({
-          pluginName: "starlight-theme-next",
+          pluginName: "starlight-theme-apple",
         }),
         starlightLinksValidator({
           exclude: ["#_"],
@@ -39,7 +39,7 @@ export default defineConfig({
         {
           icon: "github",
           label: "GitHub",
-          href: "https://github.com/trueberryless-org/starlight-theme-next",
+          href: "https://github.com/acsandmann/starlight-theme-apple",
         },
       ],
       title: "Starlight Theme Next.js",

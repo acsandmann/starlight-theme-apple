@@ -29,7 +29,7 @@ importers:
       '@astrojs/starlight':
         specifier: ^0.41.7
         version: 0.41.7(@astrojs/markdown-remark@7.2.2)(astro@6.4.8(@types/node@25.0.3)(rollup@4.62.2)(yaml@2.9.0))
-      '@trueberryless-org/starlight-plugins-docs-components':
+      '@acsandmann/starlight-plugins-docs-components':
         specifier: ^0.6.0
         version: 0.6.0(@astrojs/starlight@0.41.7(@astrojs/markdown-remark@7.2.2)(astro@6.4.8(@types/node@25.0.3)(rollup@4.62.2)(yaml@2.9.0)))
       astro:
@@ -41,11 +41,11 @@ importers:
       starlight-links-validator:
         specifier: ^0.25.3
         version: 0.25.3(@astrojs/starlight@0.41.7(@astrojs/markdown-remark@7.2.2)(astro@6.4.8(@types/node@25.0.3)(rollup@4.62.2)(yaml@2.9.0)))(astro@6.4.8(@types/node@25.0.3)(rollup@4.62.2)(yaml@2.9.0))
-      starlight-theme-next:
+      starlight-theme-apple:
         specifier: workspace:*
-        version: link:../packages/starlight-theme-next
+        version: link:../packages/starlight-theme-apple
 
-  packages/starlight-theme-next:
+  packages/starlight-theme-apple:
     devDependencies:
       '@astrojs/starlight':
         specifier: ^0.41.7
@@ -54,9 +54,9 @@ importers:
         specifier: ^6.4.8
         version: 6.4.8(@types/node@25.0.3)(rollup@4.62.2)(yaml@2.9.0)
 
-  packages/starlight-theme-next/fonts/geist-mono: {}
+  packages/starlight-theme-apple/fonts/geist-mono: {}
 
-  packages/starlight-theme-next/fonts/geist-sans: {}
+  packages/starlight-theme-apple/fonts/geist-sans: {}
 
 packages:
 
@@ -1088,7 +1088,7 @@ packages:
       svelte:
         optional: true
 
-  '@trueberryless-org/starlight-plugins-docs-components@0.6.0':
+  '@acsandmann/starlight-plugins-docs-components@0.6.0':
     resolution: {integrity: sha512-e1HQscnxr54QsVYxZBEAwgkfkYHIE3I3vx2Qi1eCUu/clr/Gv4AzP5cVfoAS88BSDV3bIHgA0MPIAlJ8iRIahw==}
     engines: {node: '>=22.12.0'}
     peerDependencies:
@@ -3681,7 +3681,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@trueberryless-org/starlight-plugins-docs-components@0.6.0(@astrojs/starlight@0.41.7(@astrojs/markdown-remark@7.2.2)(astro@6.4.8(@types/node@25.0.3)(rollup@4.62.2)(yaml@2.9.0)))':
+  '@acsandmann/starlight-plugins-docs-components@0.6.0(@astrojs/starlight@0.41.7(@astrojs/markdown-remark@7.2.2)(astro@6.4.8(@types/node@25.0.3)(rollup@4.62.2)(yaml@2.9.0)))':
     dependencies:
       '@astrojs/starlight': 0.41.7(@astrojs/markdown-remark@7.2.2)(astro@6.4.8(@types/node@25.0.3)(rollup@4.62.2)(yaml@2.9.0))
       '@hideoo/starlight-plugins-docs-components': 0.4.2(@astrojs/starlight@0.41.7(@astrojs/markdown-remark@7.2.2)(astro@6.4.8(@types/node@25.0.3)(rollup@4.62.2)(yaml@2.9.0)))

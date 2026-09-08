@@ -11,7 +11,7 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  IMAGE_NAME: starlight-theme-next
+  IMAGE_NAME: starlight-theme-apple
   NODE_VERSION: 24.14.1
 
 jobs:
@@ -19,7 +19,7 @@ jobs:
     name: Filter
     runs-on: ubuntu-latest
     outputs:
-      starlight-theme-next: ${{ steps.filter.outputs.starlight-theme-next }}
+      starlight-theme-apple: ${{ steps.filter.outputs.starlight-theme-apple }}
     steps:
       - name: Check out the repo
         uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6.1.0
@@ -30,8 +30,8 @@ jobs:
         id: filter
         with:
           filters: |
-            starlight-theme-next:
-              - 'packages/starlight-theme-next/**'
+            starlight-theme-apple:
+              - 'packages/starlight-theme-apple/**'
 
   changesets:
     name: Changesets
@@ -80,8 +80,8 @@ jobs:
         if: steps.changesets.outputs.hasChangesets == 'true'
         run: |
           git checkout changeset-release/main
-          VERSION=$(node -p "require('./packages/starlight-theme-next/package.json').version")
-          NAME=$(node -p "require('./packages/starlight-theme-next/package.json').name")
+          VERSION=$(node -p "require('./packages/starlight-theme-apple/package.json').version")
+          NAME=$(node -p "require('./packages/starlight-theme-apple/package.json').name")
           git commit --amend -m "ci: release $NAME v$VERSION" --no-edit
           git push origin changeset-release/main:changeset-release/main --force
 
@@ -99,7 +99,7 @@ jobs:
       - name: Read version from package.json
         id: get_version
         run: |
-          VERSION=$(jq -r '.version' packages/starlight-theme-next/package.json)
+          VERSION=$(jq -r '.version' packages/starlight-theme-apple/package.json)
           echo "IMAGE_TAG=$VERSION" >> $GITHUB_ENV
 
   publish:
@@ -136,7 +136,7 @@ jobs:
         run: pnpm i
 
       - run: |
-          cd packages/starlight-theme-next
+          cd packages/starlight-theme-apple
           npm publish --access public
 
   release:
@@ -154,7 +154,7 @@ jobs:
       - id: extract-changelog
         uses: sean0x42/markdown-extract@7b185cbe85263116bbf741e739e7198ba86465dc # v2.1.0
         with:
-          file: packages/starlight-theme-next/CHANGELOG.md
+          file: packages/starlight-theme-apple/CHANGELOG.md
           pattern: ${{ needs.image-tag.outputs.IMAGE_TAG }}
 
       - uses: ncipollo/release-action@v1
