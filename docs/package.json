@@ -1,0 +1,37 @@
+{
+  "name": "starlight-theme-apple-docs",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Starlight theme inspired by the Next.js docs.",
+  "homepage": "https://starlight-theme-apple.netlify.app/",
+  "bugs": {
+    "url": "https://github.com/acsandmann/starlight-theme-apple/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/acsandmann/starlight-theme-apple.git",
+    "directory": "docs"
+  },
+  "license": "MIT",
+  "author": "trueberryless <trueberryless@gmail.com> (https://felixs.dev)",
+  "type": "module",
+  "scripts": {
+    "astro": "astro",
+    "build": "astro build",
+    "dev": "astro dev",
+    "preview": "astro preview",
+    "start": "astro dev"
+  },
+  "dependencies": {
+    "@astrojs/starlight": "^0.41.7",
+    "@acsandmann/starlight-plugins-docs-components": "^0.6.0",
+    "astro": "^6.4.8",
+    "sharp": "^0.35.3",
+    "starlight-links-validator": "^0.25.3",
+    "starlight-theme-apple": "workspace:*"
+  },
+  "packageManager": "pnpm@11.1.2",
+  "engines": {
+    "node": ">=22.23.2"
+  }
+}

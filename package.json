@@ -1,0 +1,31 @@
+{
+  "name": "starlight-theme-apple-monorepo",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Starlight theme inspired by the Next.js docs.",
+  "homepage": "https://github.com/acsandmann/starlight-theme-apple",
+  "bugs": {
+    "url": "https://github.com/acsandmann/starlight-theme-apple/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/acsandmann/starlight-theme-apple.git"
+  },
+  "license": "MIT",
+  "author": "trueberryless <trueberryless@gmail.com> (https://felixs.dev)",
+  "type": "module",
+  "scripts": {
+    "version": "pnpm changeset version && pnpm i --no-frozen-lockfile"
+  },
+  "devDependencies": {
+    "@changesets/changelog-github": "^0.7.0",
+    "@changesets/cli": "^2.31.1",
+    "@trivago/prettier-plugin-sort-imports": "6.0.2",
+    "prettier": "3.9.6",
+    "prettier-plugin-astro": "0.14.1"
+  },
+  "packageManager": "pnpm@11.1.2",
+  "engines": {
+    "node": ">=22.23.2"
+  }
+}
