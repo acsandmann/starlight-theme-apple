@@ -1,0 +1,70 @@
+.right-sidebar {
+  width: var(--apple-toc-width);
+  border-inline-start: 0;
+  background: transparent;
+}
+.right-sidebar-panel {
+  padding-top: 2.2rem;
+}
+.right-sidebar h2 {
+  margin-bottom: 0.75rem;
+  color: var(--apple-foreground);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+.right-sidebar ul {
+  border-inline-start: 0;
+}
+.right-sidebar a {
+  margin-block: 0.3125rem;
+  padding-block: 0;
+  padding-inline-start: 0;
+  border-inline-start: 0;
+  color: var(--apple-secondary-foreground);
+  font-size: 0.875rem;
+  line-height: 1.125rem;
+}
+.right-sidebar a:hover {
+  color: var(--apple-link);
+}
+.right-sidebar a:focus-visible {
+  border-radius: 2px;
+  color: var(--apple-link);
+  outline-offset: 2px;
+}
+.right-sidebar a[aria-current="true"] {
+  color: var(--apple-foreground);
+  font-weight: 500;
+}
+.right-sidebar li:has(> ul) > a {
+  color: var(--apple-foreground);
+  font-weight: 600;
+}
+mobile-starlight-toc > nav {
+  border-block: 1px solid var(--apple-border-subtle);
+  background: var(--apple-header-background);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  backdrop-filter: saturate(180%) blur(20px);
+}
+mobile-starlight-toc summary {
+  color: var(--apple-secondary-foreground);
+  font-size: 0.8125rem;
+}
+mobile-starlight-toc .toggle {
+  min-height: 2.25rem;
+  border-color: var(--apple-border);
+  border-radius: var(--apple-radius-sm);
+  background: var(--apple-background);
+}
+mobile-starlight-toc details[open] .toggle,
+mobile-starlight-toc .toggle:hover {
+  border-color: var(--apple-link);
+  background: var(--apple-selection);
+  color: var(--apple-foreground);
+}
+mobile-starlight-toc .dropdown {
+  border-color: var(--apple-border-subtle);
+  background: var(--apple-background);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.14);
+}

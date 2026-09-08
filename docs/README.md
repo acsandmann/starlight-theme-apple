@@ -1,6 +1,6 @@
 # `starlight-theme-apple`
 
-Starlight theme inspired by the Next.js docs.
+Demo and visual test site for the Apple Developer Documentation-inspired Starlight theme.
 
 ## Documentation
 

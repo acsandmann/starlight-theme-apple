@@ -1,0 +1,12 @@
+@layer starlight, apple-docs;
+
+@import "./styles/tokens.css" layer(apple-docs);
+@import "./styles/base.css" layer(apple-docs);
+@import "./styles/header.css" layer(apple-docs);
+@import "./styles/sidebar.css" layer(apple-docs);
+@import "./styles/content.css" layer(apple-docs);
+@import "./styles/toc.css" layer(apple-docs);
+@import "./styles/code.css" layer(apple-docs);
+@import "./styles/controls.css" layer(apple-docs);
+@import "./styles/search.css" layer(apple-docs);
+@import "./styles/responsive.css" layer(apple-docs);

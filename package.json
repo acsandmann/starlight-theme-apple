@@ -2,7 +2,7 @@
   "name": "starlight-theme-apple-monorepo",
   "version": "0.0.1",
   "private": true,
-  "description": "Starlight theme inspired by the Next.js docs.",
+  "description": "Apple Developer Documentation-inspired theme for Astro Starlight.",
   "homepage": "https://github.com/acsandmann/starlight-theme-apple",
   "bugs": {
     "url": "https://github.com/acsandmann/starlight-theme-apple/issues"

@@ -1,51 +1,28 @@
 ---
-title: Starlight Next.js
-description: Starlight theme inspired by the Next.js docs.
-head:
-  - tag: title
-    content: Starlight Next.js
-  - tag: style
-    content: |
-      .hero-html {
-        --size: 12rem;
-        font-size: var(--size);
-        justify-content: center;
-        line-height: var(--size);
-      }
-template: splash
+title: Starlight Apple Docs
+description: An Apple Developer Documentation-inspired theme for Astro Starlight.
 editUrl: false
 lastUpdated: false
-hero:
-  tagline: Starlight theme inspired by the Next.js docs.
-  image:
-    html: '🎱'
-  actions:
-    - text: Get started
-      link: /getting-started/
-      icon: rocket
-    - text: Examples
-      link: /examples/kitchen-sink/
-      icon: right-arrow
-      variant: minimal
 ---
 
 import { Card, CardGrid } from '@astrojs/starlight/components'
 
-## Next steps
+Use Starlight's proven documentation features with a visual system modeled on the Apple developer documentation browser.
 
-<CardGrid stagger>
+## Essentials
+
+<CardGrid>
   <Card title="Install the theme" icon="puzzle">
-    Check the [getting started guide](/getting-started/) for installation
-    instructions.
+    Follow the [getting started guide](/getting-started/) to add the theme to a Starlight site.
   </Card>
-  <Card title="Configure the theme" icon="rocket">
-    Edit your config in the `astro.config.mjs` file.
+  <Card title="Customize the design" icon="setting">
+    Adjust semantic tokens and cascade layers without replacing Starlight's components.
   </Card>
-  <Card title="Preview the theme" icon="seti:image">
-    Check out the [example pages](/examples/kitchen-sink/) to see the theme in
-    action.
-  </Card>
-  <Card title="Read the docs" icon="open-book">
-    Learn more in the [Starlight Next.js Docs](/getting-started/).
+  <Card title="Review every component" icon="open-book">
+    Open the [kitchen sink](/examples/kitchen-sink/) to inspect navigation, code, asides, cards, tables, and responsive behavior.
   </Card>
 </CardGrid>
+
+## Design principles
+
+The theme uses native system fonts, restrained surfaces, compact navigation, Apple-blue links, a narrow reading measure, and a lightweight “On This Page” column. It preserves Pagefind search, generated sidebars, Expressive Code, keyboard navigation, and Starlight's mobile menu.

@@ -1,8 +1,7 @@
 import starlight from "@astrojs/starlight";
-import starlightPluginsDocsComponents from "@acsandmann/starlight-plugins-docs-components";
 import { defineConfig } from "astro/config";
 import starlightLinksValidator from "starlight-links-validator";
-import starlightThemeNext from "starlight-theme-apple";
+import starlightThemeApple from "starlight-theme-apple";
 
 export default defineConfig({
   integrations: [
@@ -12,10 +11,7 @@ export default defineConfig({
           "https://github.com/acsandmann/starlight-theme-apple/edit/main/docs/",
       },
       plugins: [
-        starlightThemeNext(),
-        starlightPluginsDocsComponents({
-          pluginName: "starlight-theme-apple",
-        }),
+        starlightThemeApple(),
         starlightLinksValidator({
           exclude: ["#_"],
         }),
@@ -27,7 +23,7 @@ export default defineConfig({
         },
         {
           label: "Examples",
-          autogenerate: { directory: "examples" },
+          items: [{ autogenerate: { directory: "examples" } }],
         },
       ],
       social: [
@@ -42,7 +38,7 @@ export default defineConfig({
           href: "https://github.com/acsandmann/starlight-theme-apple",
         },
       ],
-      title: "Starlight Theme Next.js",
+      title: "Starlight Theme Apple Docs",
     }),
   ],
 });
