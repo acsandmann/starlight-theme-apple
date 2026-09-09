@@ -24,9 +24,11 @@ header.header > .header {
   color: var(--apple-link);
 }
 .right-group {
+  align-items: center;
   gap: 0.35rem;
 }
 .social-icons {
+  align-items: center;
   gap: 0.2rem;
 }
 .social-icons::after {
@@ -38,10 +40,29 @@ starlight-lang-select {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: 2rem;
-  min-height: 2rem;
+  min-width: 2.25rem;
+  min-height: 2.25rem;
   border-radius: var(--apple-radius-sm);
   color: var(--apple-secondary-foreground);
+}
+.social-icons a {
+  width: 2.25rem;
+  height: 2.25rem;
+  margin: 0;
+  padding: 0.5rem;
+}
+:is(starlight-theme-select, starlight-lang-select) {
+  align-self: center;
+  height: 2.25rem;
+}
+:is(starlight-theme-select, starlight-lang-select) > label {
+  height: 100%;
+}
+:is(starlight-theme-select, starlight-lang-select) > label > select {
+  height: 2.25rem;
+  margin-block: 0;
+  padding-block: 0;
+  line-height: 2.25rem;
 }
 .social-icons a:hover,
 starlight-theme-select:hover,
@@ -57,8 +78,8 @@ starlight-lang-select:active {
 starlight-menu-button button {
   display: inline-grid;
   place-items: center;
-  width: 2rem;
-  height: 2rem;
+  width: var(--sl-menu-button-size);
+  height: var(--sl-menu-button-size);
   border: 0;
   background: transparent;
   box-shadow: none;
@@ -86,7 +107,6 @@ starlight-menu-button button:active {
     border-color: var(--apple-border-subtle);
   }
   :is(starlight-theme-select, starlight-lang-select) > label > select {
-    min-height: 2rem;
-    padding-block: 0.25rem;
+    min-height: 2.25rem;
   }
 }

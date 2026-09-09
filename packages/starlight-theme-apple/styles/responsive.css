@@ -6,6 +6,9 @@
     top: var(--apple-header-height);
     height: calc(100vh - var(--apple-header-height));
   }
+  starlight-menu-button {
+    display: none !important;
+  }
 }
 @media (min-width: 72rem) {
   :root {
@@ -37,6 +40,20 @@
   }
   .sidebar-content {
     padding: 1rem;
+  }
+  .mobile-preferences {
+    align-items: center;
+    min-height: 3.75rem;
+    padding-block: 0.75rem;
+  }
+  .mobile-preferences .social-icons {
+    align-items: center;
+    height: 2.25rem;
+    margin-inline-end: 0;
+    padding-block: 0;
+  }
+  .mobile-preferences :is(starlight-theme-select, starlight-lang-select) {
+    margin-block: 0;
   }
   .content-panel:first-of-type .sl-container {
     padding-top: 2rem;
