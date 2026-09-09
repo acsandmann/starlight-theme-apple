@@ -9,7 +9,7 @@
 }
 
 .expressive-code {
-  --ec-brdRad: var(--apple-radius-sm);
+  --ec-brdRad: 0.75rem;
   --ec-brdWd: 1px;
   margin-block: 1.5rem;
 }
@@ -37,9 +37,32 @@
 }
 .expressive-code .copy button {
   border-color: var(--apple-hairline) !important;
-  border-radius: var(--apple-radius-sm) !important;
+  border-radius: 0.5rem !important;
   background: var(--apple-secondary-background) !important;
   color: var(--apple-secondary-foreground) !important;
+}
+
+.sl-markdown-content kbd:not(:where(.not-content *)) {
+  display: inline-flex;
+  align-items: center;
+  min-height: 1.5rem;
+  padding-inline: 0.4rem;
+  border: 1px solid var(--apple-border);
+  border-bottom-width: 2px;
+  border-radius: 0.35rem;
+  background: var(--apple-secondary-background);
+  color: var(--apple-secondary-foreground);
+  font-family: var(--apple-font-sans);
+  font-size: 0.8125rem;
+  line-height: 1;
+  vertical-align: 0.08em;
+}
+
+.sl-markdown-content mark:not(:where(.not-content *)) {
+  padding-inline: 0.15em;
+  border-radius: 0.2em;
+  background: color-mix(in srgb, var(--apple-warning) 28%, transparent);
+  color: var(--apple-foreground);
 }
 .expressive-code .copy button:is(:hover, :focus-visible) {
   border-color: var(--apple-border) !important;
