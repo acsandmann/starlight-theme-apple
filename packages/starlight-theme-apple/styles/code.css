@@ -47,7 +47,19 @@
   color: var(--apple-foreground) !important;
 }
 .sl-markdown-content starlight-file-tree {
+  display: block;
+  margin-block: 1.5rem;
+  padding: 1rem;
   border: 1px solid var(--apple-hairline);
-  border-radius: var(--apple-radius-sm);
+  border-radius: 0.75rem;
   background: var(--apple-code-background);
+}
+.sl-markdown-content starlight-file-tree .tree-entry {
+  min-height: 1.75rem;
+}
+.sl-markdown-content starlight-file-tree .tree-icon {
+  color: var(--apple-tertiary-foreground);
+}
+.sl-markdown-content starlight-file-tree .comment {
+  color: var(--apple-tertiary-foreground);
 }

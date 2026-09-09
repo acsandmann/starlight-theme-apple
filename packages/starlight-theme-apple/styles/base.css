@@ -66,16 +66,24 @@ select:disabled {
   max-width: var(--apple-content-width);
   margin-block: 2rem 1rem;
   margin-inline: var(--sl-content-pad-x);
-  padding: 0.875rem 1rem;
-  border: 1px solid var(--apple-hairline);
-  border-radius: var(--apple-radius-sm);
-  background: var(--apple-surface);
+  padding: 0.875rem 1.125rem;
+  border: 1px solid var(--apple-border);
+  border-radius: 0.75rem;
+  background: var(--apple-aside-background);
   box-shadow: none;
   color: var(--apple-foreground);
   text-align: start;
 }
 .sl-banner a {
   color: var(--apple-link);
+}
+
+.sl-skip-link {
+  border: 1px solid var(--apple-border);
+  border-radius: 0.5rem;
+  background: var(--apple-secondary-background);
+  color: var(--apple-link);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.16);
 }
 
 @media (prefers-reduced-motion: reduce) {

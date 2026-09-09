@@ -101,6 +101,17 @@
     grid-template-columns: 1fr;
     gap: 1rem;
   }
+  .hero {
+    gap: 2.5rem;
+    padding-block: 3.5rem;
+  }
+  .hero > img {
+    flex-basis: min(70%, 16rem);
+    width: min(70%, 16rem);
+  }
+  .hero .actions {
+    gap: 0.625rem;
+  }
 }
 @media (max-width: 30rem) {
   :root {
@@ -122,5 +133,14 @@
   }
   .sl-markdown-content .sl-link-button + .sl-link-button {
     margin-inline-start: 0;
+  }
+  .hero .actions .sl-link-button {
+    width: 100%;
+  }
+}
+
+@media (hover: none) {
+  .sl-heading-wrapper .sl-anchor-link {
+    opacity: 1;
   }
 }
