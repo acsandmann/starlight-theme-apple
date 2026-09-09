@@ -6,7 +6,7 @@
     top: var(--apple-header-height);
     height: calc(100vh - var(--apple-header-height));
   }
-  starlight-menu-button {
+  .sidebar :is(.sl-menu-button, button[aria-controls="starlight__sidebar"]) {
     display: none !important;
   }
 }
@@ -23,28 +23,42 @@
     margin-inline: auto;
   }
 }
-@media (min-width: 90rem) {
-  :root {
-    --apple-sidebar-width: 18.5rem;
-    --apple-toc-width: 13rem;
-  }
-}
 @media (max-width: 71.99rem) {
   .content-panel:first-of-type .sl-container {
     padding-top: clamp(2rem, 5vw, 3.5rem);
   }
+  .content-panel h1 {
+    font-size: 2.5rem;
+    line-height: 2.75rem;
+  }
+  .sl-markdown-content h2:not(:where(.not-content *)) {
+    font-size: 1.75rem;
+    line-height: 2.25rem;
+  }
+  .sl-markdown-content h3:not(:where(.not-content *)) {
+    font-size: 1.5rem;
+    line-height: 1.75rem;
+  }
+  .sl-markdown-content h4:not(:where(.not-content *)) {
+    font-size: 1.3125rem;
+    line-height: 1.5625rem;
+  }
 }
 @media (max-width: 49.99rem) {
+  :root {
+    --apple-header-height: 3rem;
+    --sl-mobile-toc-height: 3rem;
+  }
   .sidebar-pane {
-    background: var(--apple-sidebar-background);
+    background: var(--apple-navigator-background);
   }
   .sidebar-content {
     padding: 1rem;
   }
   .mobile-preferences {
     align-items: center;
-    min-height: 3.75rem;
-    padding-block: 0.75rem;
+    min-height: 3.5rem;
+    padding-block: 0.625rem;
   }
   .mobile-preferences .social-icons {
     align-items: center;
@@ -58,29 +72,46 @@
   .content-panel:first-of-type .sl-container {
     padding-top: 2rem;
   }
-  .sl-markdown-content h2:not(:where(.not-content *)) {
-    margin-top: 0;
+  .content-panel h1 {
+    font-size: 2rem;
+    line-height: 2.25rem;
+  }
+  .content-panel
+    .sl-container
+    > p:first-of-type:not(:where(.sl-markdown-content *)) {
+    font-size: 1.1875rem;
+    line-height: 1.6875rem;
   }
   .sl-markdown-content .sl-heading-wrapper.level-h2 {
-    margin-top: 2.6rem;
+    margin-top: 2.25rem;
+  }
+  .sl-markdown-content h2:not(:where(.not-content *)) {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+  .sl-markdown-content h3:not(:where(.not-content *)) {
+    font-size: 1.3125rem;
+    line-height: 1.5625rem;
+  }
+  .sl-markdown-content h4:not(:where(.not-content *)) {
+    font-size: 1.1875rem;
+    line-height: 1.4375rem;
   }
   .pagination-links {
     grid-template-columns: 1fr;
+    gap: 1rem;
   }
 }
 @media (max-width: 30rem) {
   :root {
-    --sl-content-pad-x: 1.15rem;
+    --sl-content-pad-x: 1.25rem;
   }
   header.header > .header {
     padding-inline: 0.75rem;
   }
-  .content-panel h1 {
-    font-size: 1.75rem;
-    line-height: 2rem;
-  }
-  .sl-markdown-content {
+  .site-title {
     font-size: 1.0625rem;
+    line-height: 1.25rem;
   }
   .sl-markdown-content table:not(:where(.not-content *)) {
     display: block;

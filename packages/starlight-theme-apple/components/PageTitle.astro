@@ -1,22 +1,43 @@
 ---
-const title = Astro.locals.starlightRoute.entry.data.title;
-const segments = Astro.url.pathname.split("/").filter(Boolean);
-const parents = segments.slice(0, -1).map((segment, index) => ({
-  href: `/${segments.slice(0, index + 1).join("/")}/`,
-  label: decodeURIComponent(segment)
-    .split("-")
-    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-    .join(" "),
-}));
+const { entry, sidebar, siteTitle, siteTitleHref } =
+  Astro.locals.starlightRoute;
+const title = entry.data.title;
+
+type Crumb = { href?: string; label: string };
+type SidebarItem =
+  | { type: "link"; isCurrent: boolean }
+  | { type: "group"; label: string; entries: SidebarItem[] };
+
+function findCurrentPath(
+  entries: SidebarItem[],
+  ancestors: Crumb[] = []
+): Crumb[] | undefined {
+  for (const item of entries) {
+    if (item.type === "link" && item.isCurrent) return ancestors;
+    if (item.type === "group") {
+      const path = findCurrentPath(item.entries, [
+        ...ancestors,
+        { label: item.label },
+      ]);
+      if (path) return path;
+    }
+  }
+}
+
+const parents = findCurrentPath(sidebar as SidebarItem[]) ?? [];
 ---
 
 <nav class="apple-breadcrumbs" aria-label="Breadcrumb">
-  <a href="/">Documentation</a>
+  <a href={siteTitleHref}>{siteTitle}</a>
   {
     parents.map((parent) => (
       <>
         <span aria-hidden="true">›</span>
-        <a href={parent.href}>{parent.label}</a>
+        {parent.href ? (
+          <a href={parent.href}>{parent.label}</a>
+        ) : (
+          <span>{parent.label}</span>
+        )}
       </>
     ))
   }

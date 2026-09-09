@@ -1,38 +1,33 @@
 site-search > button {
   min-height: 2rem;
-  border: 1px solid var(--apple-border-subtle);
-  border-radius: var(--apple-radius);
-  background: var(--apple-surface);
+  border: 1px solid var(--apple-hairline);
+  border-radius: var(--apple-radius-sm);
+  background: transparent;
   color: var(--apple-secondary-foreground);
   box-shadow: none;
   font-size: 0.8125rem;
 }
-site-search > button:hover {
-  border-color: var(--apple-border);
-  background: var(--apple-selection);
-  color: var(--apple-foreground);
-}
-site-search > button:active,
+site-search > button:is(:hover, :active),
 site-search > button[aria-expanded="true"] {
-  border-color: var(--apple-link);
-  background: var(--apple-pressed);
+  border-color: var(--apple-border);
+  background: var(--apple-active-surface);
   color: var(--apple-foreground);
 }
 site-search dialog {
   border: 1px solid var(--apple-border);
-  border-radius: 0.75rem;
-  background: var(--apple-surface-raised);
-  box-shadow: 0 16px 50px rgba(0, 0, 0, 0.18);
+  border-radius: var(--apple-radius-sm);
+  background: var(--apple-secondary-background);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.18);
 }
 site-search dialog::backdrop {
-  background: rgba(0, 0, 0, 0.34);
+  background: rgba(0, 0, 0, 0.3);
   -webkit-backdrop-filter: blur(4px);
   backdrop-filter: blur(4px);
 }
 site-search input {
   min-height: 2.75rem;
   border-color: var(--apple-border);
-  border-radius: var(--apple-radius);
+  border-radius: var(--apple-radius-sm);
   background: var(--apple-code-background);
   color: var(--apple-foreground);
 }
@@ -46,26 +41,20 @@ site-search [data-close-modal] {
   border-radius: var(--apple-radius-sm);
 }
 site-search [data-close-modal]:hover {
-  background: var(--apple-selection);
-}
-site-search [data-close-modal]:active {
-  background: var(--apple-pressed);
+  background: var(--apple-active-surface);
 }
 site-search input:focus {
   border-color: var(--apple-link);
-  box-shadow: 0 0 0 3px var(--apple-selection);
+  box-shadow: 0 0 0 3px var(--apple-focus);
   outline: 0;
 }
 .pagefind-ui__result {
-  border-color: var(--apple-border-subtle) !important;
-  border-radius: var(--apple-radius-sm);
-  transition:
-    background-color var(--apple-transition),
-    border-color var(--apple-transition);
+  border-color: var(--apple-hairline) !important;
+  border-radius: 0;
+  transition: background-color var(--apple-transition);
 }
 .pagefind-ui__result:is(:hover, :focus-within) {
-  border-color: var(--apple-border) !important;
-  background: var(--apple-selection);
+  background: var(--apple-hover-surface);
 }
 .pagefind-ui__result-link {
   color: var(--apple-foreground) !important;
