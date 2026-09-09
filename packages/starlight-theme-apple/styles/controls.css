@@ -1,10 +1,10 @@
-.sl-markdown-content .sl-link-button {
+.sl-markdown-content .sl-link-button,
+.hero .sl-link-button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.4rem;
   min-height: 2.25rem;
-  margin-block: 0.25rem;
   padding: 0.45rem 0.875rem;
   border: 1px solid transparent;
   border-radius: var(--apple-radius-sm);
@@ -13,98 +13,52 @@
   font-weight: 600;
   line-height: 1.25rem;
   text-decoration: none;
-  vertical-align: middle;
 }
 .sl-markdown-content .sl-link-button + .sl-link-button {
   margin-inline-start: 0.5rem;
 }
-.sl-markdown-content .sl-link-button.primary {
-  border-color: var(--apple-link);
-  background: var(--apple-link);
-  color: var(--apple-control-primary-text);
-}
-.sl-markdown-content .sl-link-button.primary:hover {
-  border-color: var(--apple-link-hover);
-  background: var(--apple-link-hover);
-  color: var(--apple-control-primary-text);
-}
-.sl-markdown-content .sl-link-button.secondary {
-  border-color: var(--apple-border);
-  background: var(--apple-surface-raised);
-  color: var(--apple-foreground);
-}
-.sl-markdown-content .sl-link-button.secondary:hover {
-  border-color: var(--apple-link);
-  background: var(--apple-selection);
-  color: var(--apple-link);
-}
-.sl-markdown-content .sl-link-button.minimal {
-  background: transparent;
-  color: var(--apple-link);
-}
-.sl-markdown-content .sl-link-button.minimal:hover {
-  background: var(--apple-selection);
-  color: var(--apple-link-hover);
-}
-.sl-markdown-content .sl-link-button:active {
-  background: var(--apple-pressed);
-  transform: scale(0.98);
-}
-.sl-markdown-content .sl-link-button[aria-disabled="true"] {
-  pointer-events: none;
-}
-
 .hero .sl-link-button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.4rem;
   min-height: 2.5rem;
   padding: 0.55rem 1rem;
-  border: 1px solid transparent;
-  border-radius: var(--apple-radius-sm);
-  box-shadow: none;
-  font-size: 0.875rem;
-  font-weight: 600;
-  line-height: 1.25rem;
-  text-decoration: none;
 }
 .hero .sl-link-button svg,
 .sl-markdown-content .sl-link-button svg {
   flex-shrink: 0;
   font-size: 1.125rem;
 }
-.hero .sl-link-button.primary {
+
+:is(.hero, .sl-markdown-content) .sl-link-button.primary {
   border-color: var(--apple-link);
   background: var(--apple-link);
   color: var(--apple-control-primary-text);
 }
-.hero .sl-link-button.primary:is(:hover, :focus-visible) {
+:is(.hero, .sl-markdown-content)
+  .sl-link-button.primary:is(:hover, :focus-visible) {
   border-color: var(--apple-link-hover);
   background: var(--apple-link-hover);
   color: var(--apple-control-primary-text);
+  text-decoration: none;
 }
-.hero .sl-link-button.secondary {
+:is(.hero, .sl-markdown-content) .sl-link-button.secondary {
   border-color: var(--apple-border);
-  background: var(--apple-surface-raised);
+  background: transparent;
   color: var(--apple-foreground);
 }
-.hero .sl-link-button.secondary:is(:hover, :focus-visible) {
-  border-color: var(--apple-link);
-  background: var(--apple-selection);
-  color: var(--apple-link);
+:is(.hero, .sl-markdown-content)
+  .sl-link-button.secondary:is(:hover, :focus-visible) {
+  background: var(--apple-active-surface);
+  color: var(--apple-foreground);
+  text-decoration: none;
 }
-.hero .sl-link-button.minimal {
+:is(.hero, .sl-markdown-content) .sl-link-button.minimal {
   background: transparent;
   color: var(--apple-link);
 }
-.hero .sl-link-button.minimal:is(:hover, :focus-visible) {
-  background: var(--apple-selection);
+:is(.hero, .sl-markdown-content)
+  .sl-link-button.minimal:is(:hover, :focus-visible) {
+  background: var(--apple-hover-surface);
   color: var(--apple-link-hover);
-}
-.hero .sl-link-button:active {
-  background: var(--apple-pressed);
-  transform: scale(0.98);
+  text-decoration: none;
 }
 
 .sl-markdown-content starlight-tabs {
@@ -122,21 +76,18 @@
 .sl-markdown-content starlight-tabs a[role="tab"] {
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
   min-height: 2.5rem;
   padding: 0.5rem 0.75rem;
   border-bottom: 2px solid transparent;
+  border-radius: var(--apple-radius-sm) var(--apple-radius-sm) 0 0;
   font-size: 0.875rem;
   font-weight: 500;
   line-height: 1.25rem;
   text-decoration: none;
 }
 .sl-markdown-content starlight-tabs a[role="tab"]:hover {
-  background: var(--apple-selection);
+  background: var(--apple-hover-surface);
   color: var(--apple-link);
-}
-.sl-markdown-content starlight-tabs a[role="tab"]:active {
-  background: var(--apple-pressed);
 }
 .sl-markdown-content starlight-tabs a[role="tab"][aria-selected="true"] {
   border-bottom-color: var(--apple-link);
@@ -154,9 +105,9 @@
   display: inline-flex;
   align-items: center;
   min-height: 1.375rem;
-  padding-inline: 0.5rem;
+  padding-inline: 0.45rem;
   border: 1px solid currentColor;
-  border-radius: 999px;
+  border-radius: var(--apple-radius-sm);
   font-weight: 600;
   line-height: 1.2;
   vertical-align: 0.08em;
@@ -170,11 +121,11 @@
   min-height: 2.25rem;
   border: 1px solid var(--apple-border);
   border-radius: var(--apple-radius-sm);
-  background: var(--apple-surface-raised);
+  background: var(--apple-secondary-background);
   color: var(--apple-foreground);
   font: inherit;
 }
 .sl-markdown-content :is(input, select, textarea):focus {
   border-color: var(--apple-link);
-  box-shadow: 0 0 0 3px var(--apple-selection);
+  box-shadow: 0 0 0 3px var(--apple-focus);
 }

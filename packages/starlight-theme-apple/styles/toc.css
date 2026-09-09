@@ -4,22 +4,25 @@
   background: transparent;
 }
 .right-sidebar-panel {
-  padding-top: 2.2rem;
+  padding-top: 2.5rem;
 }
 .right-sidebar h2 {
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.625rem;
   color: var(--apple-foreground);
   font-size: 0.75rem;
   font-weight: 600;
+  line-height: 1rem;
   letter-spacing: 0.01em;
 }
 .right-sidebar ul {
   border-inline-start: 0;
 }
+.right-sidebar ul ul {
+  padding-inline-start: 0.75rem;
+}
 .right-sidebar a {
   margin-block: 0.3125rem;
-  padding-block: 0;
-  padding-inline-start: 0;
+  padding: 0;
   border-inline-start: 0;
   color: var(--apple-secondary-foreground);
   font-size: 0.875rem;
@@ -37,12 +40,9 @@
   color: var(--apple-foreground);
   font-weight: 500;
 }
-.right-sidebar li:has(> ul) > a {
-  color: var(--apple-foreground);
-  font-weight: 600;
-}
+
 mobile-starlight-toc > nav {
-  border-block: 1px solid var(--apple-border-subtle);
+  border-block: 1px solid var(--apple-hairline);
   background: var(--apple-header-background);
   -webkit-backdrop-filter: saturate(180%) blur(20px);
   backdrop-filter: saturate(180%) blur(20px);
@@ -53,18 +53,18 @@ mobile-starlight-toc summary {
 }
 mobile-starlight-toc .toggle {
   min-height: 2.25rem;
-  border-color: var(--apple-border);
+  border-color: transparent;
   border-radius: var(--apple-radius-sm);
-  background: var(--apple-background);
+  background: transparent;
 }
 mobile-starlight-toc details[open] .toggle,
 mobile-starlight-toc .toggle:hover {
-  border-color: var(--apple-link);
-  background: var(--apple-selection);
+  border-color: transparent;
+  background: var(--apple-active-surface);
   color: var(--apple-foreground);
 }
 mobile-starlight-toc .dropdown {
-  border-color: var(--apple-border-subtle);
+  border-color: var(--apple-hairline);
   background: var(--apple-background);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.14);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
 }

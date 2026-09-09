@@ -1,39 +1,42 @@
 header.header {
   height: var(--apple-header-height);
-  border-bottom: 1px solid var(--apple-border-subtle);
+  border-bottom: 1px solid var(--apple-hairline);
   background: var(--apple-header-background);
   color: var(--apple-foreground);
   -webkit-backdrop-filter: saturate(180%) blur(20px);
   backdrop-filter: saturate(180%) blur(20px);
 }
+
 header.header > .header {
   height: 100%;
   padding-inline: clamp(1rem, 2.4vw, 2rem);
 }
+
 .site-title {
   min-width: 0;
   overflow: hidden;
   color: var(--apple-foreground);
-  font-size: 1.05rem;
+  font-size: 1.1875rem;
   font-weight: 600;
+  line-height: 1.6875rem;
   letter-spacing: -0.015em;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 .site-title:hover {
-  color: var(--apple-link);
+  color: var(--apple-foreground);
+  opacity: 0.72;
 }
-.right-group {
-  align-items: center;
-  gap: 0.35rem;
-}
+
+.right-group,
 .social-icons {
   align-items: center;
-  gap: 0.2rem;
+  gap: 0.25rem;
 }
 .social-icons::after {
   display: none;
 }
+
 .social-icons a,
 starlight-theme-select,
 starlight-lang-select {
@@ -58,55 +61,46 @@ starlight-lang-select {
 :is(starlight-theme-select, starlight-lang-select) > label {
   height: 100%;
 }
-:is(starlight-theme-select, starlight-lang-select) > label > select {
+:is(starlight-theme-select, starlight-lang-select) select {
   height: 2.25rem;
   margin-block: 0;
   padding-block: 0;
   line-height: 2.25rem;
 }
+
 .social-icons a:hover,
 starlight-theme-select:hover,
 starlight-lang-select:hover {
-  background: var(--apple-selection);
-  color: var(--apple-link);
+  background: var(--apple-active-surface);
+  color: var(--apple-foreground);
 }
-.social-icons a:active,
-starlight-theme-select:active,
-starlight-lang-select:active {
-  background: var(--apple-pressed);
-}
-starlight-menu-button button {
+
+.sidebar :is(.sl-menu-button, button[aria-controls="starlight__sidebar"]) {
   display: inline-grid;
   place-items: center;
   width: var(--sl-menu-button-size);
   height: var(--sl-menu-button-size);
   border: 0;
+  border-radius: var(--apple-radius-sm);
   background: transparent;
   box-shadow: none;
   color: var(--apple-foreground);
 }
-starlight-menu-button button:hover {
-  background: var(--apple-selection);
-  color: var(--apple-link);
+.sidebar
+  :is(.sl-menu-button, button[aria-controls="starlight__sidebar"]):is(
+    :hover,
+    :active
+  ) {
+  background: var(--apple-active-surface);
+  color: var(--apple-foreground);
 }
-starlight-menu-button[aria-expanded="true"] button,
-starlight-menu-button button:active {
-  background: var(--apple-pressed);
-  color: var(--apple-link);
-}
+
 @media (min-width: 50rem) {
-  header.header > .header > div.sl-flex:has(site-search) {
+  header.header site-search {
     justify-self: end;
     min-width: 15rem;
   }
   :is(starlight-theme-select, starlight-lang-select) {
-    padding-inline-start: 0.35rem;
-    border: 1px solid transparent;
-  }
-  :is(starlight-theme-select, starlight-lang-select):hover {
-    border-color: var(--apple-border-subtle);
-  }
-  :is(starlight-theme-select, starlight-lang-select) > label > select {
-    min-height: 2.25rem;
+    padding-inline-start: 0.25rem;
   }
 }

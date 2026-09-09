@@ -2,6 +2,7 @@ html {
   scroll-padding-top: calc(var(--apple-header-height) + 1.5rem);
   text-rendering: optimizeLegibility;
 }
+
 body {
   background: var(--apple-background);
   color: var(--apple-foreground);
@@ -11,19 +12,16 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
 ::selection {
-  background: color-mix(in srgb, var(--apple-link) 28%, transparent);
+  background: var(--apple-focus);
 }
 :focus-visible {
   outline: 2px solid var(--apple-link);
   outline-offset: 3px;
 }
-a {
-  transition:
-    color var(--apple-transition),
-    background-color var(--apple-transition),
-    border-color var(--apple-transition);
-}
+
+a,
 button,
 [role="button"],
 summary,
@@ -34,13 +32,9 @@ select {
     background-color var(--apple-transition),
     border-color var(--apple-transition),
     box-shadow var(--apple-transition),
-    opacity var(--apple-transition),
-    transform 80ms ease;
+    opacity var(--apple-transition);
 }
-button:active:not(:disabled),
-[role="button"]:active:not([aria-disabled="true"]) {
-  transform: scale(0.97);
-}
+
 :is(button, input, select, summary, a)[aria-disabled="true"],
 button:disabled,
 input:disabled,
@@ -48,14 +42,14 @@ select:disabled {
   cursor: not-allowed;
   opacity: var(--apple-disabled-opacity);
 }
-.main-frame {
+
+.main-frame,
+.main-pane {
   background: var(--apple-background);
 }
-.main-pane {
-  min-width: 0;
-}
+.main-pane,
 .main-pane main {
-  position: relative;
+  min-width: 0;
 }
 .content-panel {
   padding-block: 0;
@@ -67,12 +61,13 @@ select:disabled {
 .sl-container {
   max-width: var(--apple-content-width);
 }
+
 .sl-banner {
   max-width: var(--apple-content-width);
   margin-block: 2rem 1rem;
   margin-inline: var(--sl-content-pad-x);
   padding: 0.875rem 1rem;
-  border: 1px solid var(--apple-border);
+  border: 1px solid var(--apple-hairline);
   border-radius: var(--apple-radius-sm);
   background: var(--apple-surface);
   box-shadow: none;
@@ -82,18 +77,7 @@ select:disabled {
 .sl-banner a {
   color: var(--apple-link);
 }
-[data-has-sidebar] main:has(.sl-banner) {
-  display: grid;
-}
-@media (min-width: 72rem) {
-  .sl-banner {
-    margin-inline: auto;
-  }
-  [data-has-sidebar] .sl-banner {
-    justify-self: end;
-    margin-inline: var(--sl-content-pad-x);
-  }
-}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
