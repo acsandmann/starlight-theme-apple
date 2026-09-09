@@ -20,7 +20,7 @@
     "directory": "packages/starlight-theme-apple"
   },
   "license": "MIT",
-  "author": "trueberryless <trueberryless@gmail.com> (https://felixs.dev)",
+  "author": "acsandmann (https://github.com/acsandmann)",
   "type": "module",
   "exports": {
     ".": "./index.ts",
