@@ -1,9 +1,10 @@
 import starlight from "@astrojs/starlight";
 import { defineConfig } from "astro/config";
-import starlightLinksValidator from "starlight-links-validator";
 import starlightThemeApple from "starlight-theme-apple";
 
 export default defineConfig({
+  site: "https://acsandmann.github.io",
+  base: "/starlight-theme-apple",
   integrations: [
     starlight({
       editLink: {
@@ -12,9 +13,6 @@ export default defineConfig({
       },
       plugins: [
         starlightThemeApple(),
-        starlightLinksValidator({
-          exclude: ["#_"],
-        }),
       ],
       sidebar: [
         {

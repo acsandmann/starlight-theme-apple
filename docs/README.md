@@ -7,7 +7,7 @@ Demo and visual test site for the Apple Developer Documentation-inspired Starlig
 Run the documentation locally by running the following command in your terminal:
 
 ```shell
-pnpm run dev
+bun run dev
 ```
 
 Content can be found in the [`src/content/docs/`](./src/content/docs/) directory.

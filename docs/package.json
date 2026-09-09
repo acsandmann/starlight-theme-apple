@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "description": "Documentation and visual test site for Starlight Theme Apple Docs.",
-  "homepage": "https://starlight-theme-apple.netlify.app/",
+  "homepage": "https://acsandmann.github.io/starlight-theme-apple/",
   "bugs": {
     "url": "https://github.com/acsandmann/starlight-theme-apple/issues"
   },
@@ -26,10 +26,8 @@
     "@astrojs/starlight": "^0.41.7",
     "astro": "^7.0.2",
     "sharp": "^0.35.3",
-    "starlight-links-validator": "^0.25.3",
     "starlight-theme-apple": "workspace:*"
   },
-  "packageManager": "pnpm@11.1.2",
   "engines": {
     "node": ">=22.23.2"
   }
