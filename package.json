@@ -12,7 +12,7 @@
     "url": "https://github.com/acsandmann/starlight-theme-apple.git"
   },
   "license": "MIT",
-  "author": "trueberryless <trueberryless@gmail.com> (https://felixs.dev)",
+  "author": "acsandmann (https://github.com/acsandmann)",
   "type": "module",
   "scripts": {
     "dev": "bun run --cwd docs dev",

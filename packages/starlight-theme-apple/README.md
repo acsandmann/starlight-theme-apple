@@ -10,6 +10,6 @@ Check out the `starlight-theme-apple` getting started guide.
 
 ## License
 
-Licensed under the MIT license, Copyright © trueberryless.
+Licensed under the MIT license, Copyright © acsandmann.
 
 See [LICENSE](https://github.com/acsandmann/starlight-theme-apple/blob/main/LICENSE) for more information.
