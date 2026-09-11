@@ -14,7 +14,12 @@
   --apple-link: #09f;
   --apple-link-hover: #40b3ff;
   --apple-focus: rgba(0, 153, 255, 0.35);
-  --apple-control-primary-text: #000;
+  --apple-button-background: #06f;
+  --apple-button-background-hover: #09f;
+  --apple-button-background-active: #06f;
+  --apple-button-secondary-background: #161616;
+  --apple-button-secondary-hover: #2a2a2a;
+  --apple-control-primary-text: #fff;
   --apple-disabled-opacity: 0.42;
   --apple-header-background: rgba(17, 17, 17, 0.82);
   --apple-code-background: #1c1c1e;
@@ -85,6 +90,11 @@
   --apple-link: #36f;
   --apple-link-hover: #174ea6;
   --apple-focus: rgba(51, 102, 255, 0.24);
+  --apple-button-background: #00f;
+  --apple-button-background-hover: #36f;
+  --apple-button-background-active: #36f;
+  --apple-button-secondary-background: #f7f7f7;
+  --apple-button-secondary-hover: #f0f0f0;
   --apple-control-primary-text: #fff;
   --apple-header-background: rgba(255, 255, 255, 0.82);
   --apple-code-background: #f5f5f7;

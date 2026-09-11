@@ -3,62 +3,77 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.4rem;
-  min-height: 2.25rem;
-  padding: 0.45rem 0.875rem;
-  border: 1px solid transparent;
-  border-radius: var(--apple-radius-sm);
+  gap: 0.375rem;
+  min-width: 1.875rem;
+  min-height: 2.0625rem;
+  padding: 0.25rem 0.9375rem;
+  border: 0;
+  border-radius: 0.25rem;
   box-shadow: none;
-  font-size: 0.875rem;
-  font-weight: 600;
-  line-height: 1.25rem;
+  font-size: 1.0625rem;
+  font-weight: 400;
+  line-height: 1.5625rem;
+  letter-spacing: normal;
   text-decoration: none;
+  cursor: pointer;
+  transition:
+    color var(--apple-transition),
+    background-color var(--apple-transition),
+    border-color var(--apple-transition),
+    box-shadow var(--apple-transition);
 }
 .sl-markdown-content .sl-link-button + .sl-link-button {
   margin-inline-start: 0.5rem;
 }
 .hero .sl-link-button {
-  min-height: 2.5rem;
-  padding: 0.55rem 1rem;
+  min-height: 2.0625rem;
+  padding: 0.25rem 0.9375rem;
 }
 .hero .sl-link-button svg,
 .sl-markdown-content .sl-link-button svg {
   flex-shrink: 0;
-  font-size: 1.125rem;
+  font-size: 1rem;
 }
 
 :is(.hero, .sl-markdown-content) .sl-link-button.primary {
-  border-color: var(--apple-link);
-  background: var(--apple-link);
+  background: var(--apple-button-background);
   color: var(--apple-control-primary-text);
 }
 :is(.hero, .sl-markdown-content)
   .sl-link-button.primary:is(:hover, :focus-visible) {
-  border-color: var(--apple-link-hover);
-  background: var(--apple-link-hover);
+  background: var(--apple-button-background-hover);
   color: var(--apple-control-primary-text);
   text-decoration: none;
 }
+:is(.hero, .sl-markdown-content) .sl-link-button.primary:active {
+  background: var(--apple-button-background-active);
+}
 :is(.hero, .sl-markdown-content) .sl-link-button.secondary {
-  border-color: var(--apple-border);
-  background: transparent;
-  color: var(--apple-foreground);
+  background: var(--apple-button-secondary-background);
+  color: var(--apple-link);
 }
 :is(.hero, .sl-markdown-content)
   .sl-link-button.secondary:is(:hover, :focus-visible) {
-  background: var(--apple-active-surface);
-  color: var(--apple-foreground);
+  background: var(--apple-button-secondary-hover);
+  color: var(--apple-link);
   text-decoration: none;
 }
 :is(.hero, .sl-markdown-content) .sl-link-button.minimal {
+  min-width: 0;
+  padding-inline: 0;
   background: transparent;
   color: var(--apple-link);
 }
 :is(.hero, .sl-markdown-content)
   .sl-link-button.minimal:is(:hover, :focus-visible) {
-  background: var(--apple-hover-surface);
-  color: var(--apple-link-hover);
-  text-decoration: none;
+  background: transparent;
+  color: var(--apple-link);
+  text-decoration: underline;
+  text-underline-offset: 0.14em;
+}
+:is(.hero, .sl-markdown-content) .sl-link-button:focus-visible {
+  outline: 0;
+  box-shadow: 0 0 0 4px var(--apple-focus);
 }
 
 .sl-markdown-content starlight-tabs {
@@ -130,14 +145,40 @@
   line-height: 1;
 }
 
-.sl-markdown-content
-  :is(input, select, textarea, button):not(:where(.not-content *)) {
+.sl-markdown-content :is(input, select, textarea):not(:where(.not-content *)) {
   min-height: 2.25rem;
   border: 1px solid var(--apple-border);
-  border-radius: var(--apple-radius-sm);
+  border-radius: 0.5rem;
   background: var(--apple-secondary-background);
   color: var(--apple-foreground);
   font: inherit;
+}
+.sl-markdown-content button:not(:where(.not-content *)) {
+  min-width: 1.875rem;
+  min-height: 2.0625rem;
+  padding: 0.25rem 0.9375rem;
+  border: 0;
+  border-radius: 0.25rem;
+  background: var(--apple-button-background);
+  color: var(--apple-control-primary-text);
+  box-shadow: none;
+  font: inherit;
+  font-size: 1.0625rem;
+  font-weight: 400;
+  line-height: 1.5625rem;
+  cursor: pointer;
+}
+.sl-markdown-content
+  button:is(:hover, :focus-visible):not(:where(.not-content *)) {
+  background: var(--apple-button-background-hover);
+}
+.sl-markdown-content button:active:not(:where(.not-content *)) {
+  background: var(--apple-button-background-active);
+  box-shadow: none;
+}
+.sl-markdown-content button:focus-visible:not(:where(.not-content *)) {
+  outline: 0;
+  box-shadow: 0 0 0 4px var(--apple-focus);
 }
 .sl-markdown-content :is(input, select, textarea):focus {
   border-color: var(--apple-link);
