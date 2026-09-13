@@ -63,12 +63,12 @@ select:disabled {
 }
 
 .sl-banner {
-  max-width: var(--apple-content-width);
+  width: 100%;
+  max-width: none;
   margin-block: 2rem 1rem;
-  margin-inline: var(--sl-content-pad-x);
-  padding: 0.875rem 1.125rem;
-  border: 1px solid var(--apple-border);
-  border-radius: 0.75rem;
+  margin-inline: 0;
+  padding: 0.875rem var(--sl-content-pad-x);
+  border-block: 1px solid var(--apple-border);
   background: var(--apple-aside-background);
   box-shadow: none;
   color: var(--apple-foreground);

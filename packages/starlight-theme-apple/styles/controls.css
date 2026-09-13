@@ -128,7 +128,8 @@
   padding-inline: 0.5rem;
   border: 0;
   border-radius: 999px;
-  background: color-mix(in srgb, currentColor 14%, transparent);
+  background: var(--sl-color-bg-badge);
+  color: var(--sl-color-text-badge);
   font-weight: 600;
   line-height: 1.2;
   vertical-align: 0.08em;
@@ -143,6 +144,9 @@
   padding-inline: 0.4rem;
   font-size: 0.6875rem;
   line-height: 1;
+}
+.sidebar-content a[aria-current="page"] > .sl-badge {
+  color: inherit;
 }
 
 .sl-markdown-content :is(input, select, textarea):not(:where(.not-content *)) {
