@@ -8,7 +8,7 @@
   min-height: 2.0625rem;
   padding: 0.25rem 0.9375rem;
   border: 0;
-  border-radius: 0.25rem;
+  border-radius: var(--apple-radius-sm);
   box-shadow: none;
   font-size: 1.0625rem;
   font-weight: 400;
@@ -162,7 +162,7 @@
   min-height: 2.0625rem;
   padding: 0.25rem 0.9375rem;
   border: 0;
-  border-radius: 0.25rem;
+  border-radius: var(--apple-radius-sm);
   background: var(--apple-button-background);
   color: var(--apple-control-primary-text);
   box-shadow: none;

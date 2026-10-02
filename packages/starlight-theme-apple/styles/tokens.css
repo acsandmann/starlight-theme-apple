@@ -1,13 +1,13 @@
 :root {
   color-scheme: dark;
-  --apple-background: #111;
-  --apple-navigator-background: #161616;
+  --apple-background: #161617;
+  --apple-navigator-background: #1c1c1e;
   --apple-secondary-background: #1c1c1e;
   --apple-card-background: #1c1c1e;
   --apple-surface: #2a2a2a;
   --apple-hover-surface: rgba(0, 153, 255, 0.08);
-  --apple-active-surface: rgba(255, 255, 255, 0.1);
-  --apple-foreground: #fff;
+  --apple-active-surface: rgba(0, 153, 255, 0.14);
+  --apple-foreground: #f5f5f7;
   --apple-secondary-foreground: #ccc;
   --apple-tertiary-foreground: #999;
   --apple-hairline: rgba(255, 255, 255, 0.12);
@@ -22,7 +22,7 @@
   --apple-button-secondary-hover: #2a2a2a;
   --apple-control-primary-text: #fff;
   --apple-disabled-opacity: 0.42;
-  --apple-header-background: rgba(17, 17, 17, 0.82);
+  --apple-header-background: rgba(22, 22, 23, 0.88);
   --apple-code-background: #1c1c1e;
   --apple-aside-background: #1c1c1e;
   --apple-note: #8e8e93;
@@ -36,11 +36,12 @@
     ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
     monospace;
   --apple-header-height: 3.25rem;
-  --apple-sidebar-width: 18.5rem;
-  --apple-toc-width: 12rem;
-  --apple-content-width: 51.25rem;
+  --apple-sidebar-width: 17rem;
+  --apple-toc-width: 14rem;
+  --apple-content-width: 48rem;
   --apple-row-height: 2rem;
-  --apple-radius-sm: 0.25rem;
+  --apple-radius-sm: 0.375rem;
+  --apple-radius-panel: 0.75rem;
   --apple-transition: 120ms ease;
   --apple-section-spacing: 2.5rem;
   --sl-font: var(--apple-font-sans);
@@ -83,16 +84,16 @@
   --apple-card-background: #f5f5f7;
   --apple-surface: #f0f0f0;
   --apple-hover-surface: rgba(51, 102, 255, 0.05);
-  --apple-active-surface: rgba(0, 0, 0, 0.06);
-  --apple-foreground: #000;
-  --apple-secondary-foreground: #666;
+  --apple-active-surface: rgba(0, 102, 204, 0.08);
+  --apple-foreground: #1d1d1f;
+  --apple-secondary-foreground: #6e6e73;
   --apple-tertiary-foreground: #767676;
   --apple-hairline: rgba(0, 0, 0, 0.12);
   --apple-border: #ccc;
-  --apple-link: #36f;
+  --apple-link: #0066cc;
   --apple-link-hover: #174ea6;
   --apple-focus: rgba(51, 102, 255, 0.24);
-  --apple-button-background: #00f;
+  --apple-button-background: #0071e3;
   --apple-button-background-hover: #36f;
   --apple-button-background-active: #36f;
   --apple-button-secondary-background: #f7f7f7;
@@ -101,6 +102,9 @@
   --apple-header-background: rgba(255, 255, 255, 0.82);
   --apple-code-background: #f5f5f7;
   --apple-aside-background: #f5f5f7;
+  --apple-warning: #9a5700;
+  --apple-danger: #c7362c;
+  --apple-success: #21783b;
   --sl-color-accent-low: #e8f2ff;
   --sl-color-accent-high: #004b99;
   --sl-color-gray-1: #2c2c2e;

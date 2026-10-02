@@ -121,7 +121,7 @@ export default function starlightThemeApple(): StarlightPlugin {
                   ...userExpressiveCodeConfig,
                   styleOverrides: {
                     borderColor: "var(--apple-hairline)",
-                    borderRadius: "var(--apple-radius-sm)",
+                    borderRadius: "var(--apple-radius-panel)",
                     ...userExpressiveCodeConfig.styleOverrides,
                     frames: {
                       editorActiveTabIndicatorTopColor: "unset",

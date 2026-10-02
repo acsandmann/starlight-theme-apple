@@ -6,6 +6,9 @@
 .right-sidebar-panel {
   padding-top: 2.5rem;
 }
+.right-sidebar-panel .sl-container {
+  max-width: none;
+}
 .right-sidebar h2 {
   margin-bottom: 0.625rem;
   color: var(--apple-foreground);
@@ -21,12 +24,16 @@
   padding-inline-start: 0.75rem;
 }
 .right-sidebar a {
-  margin-block: 0.3125rem;
-  padding: 0;
-  border-inline-start: 0;
+  margin-block: 0;
+  padding: 0.25rem 0.75rem;
+  border-inline-start: 1px solid var(--apple-hairline);
   color: var(--apple-secondary-foreground);
   font-size: 0.875rem;
   line-height: 1.125rem;
+  overflow-wrap: anywhere;
+}
+.right-sidebar a span {
+  white-space: normal;
 }
 .right-sidebar a:hover {
   color: var(--apple-link);
@@ -37,7 +44,8 @@
   outline-offset: 2px;
 }
 .right-sidebar a[aria-current="true"] {
-  color: var(--apple-foreground);
+  border-inline-start-color: var(--apple-link);
+  color: var(--apple-link);
   font-weight: 500;
 }
 

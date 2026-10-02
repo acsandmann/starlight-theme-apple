@@ -2,7 +2,7 @@ site-search > button {
   min-height: 2rem;
   border: 1px solid var(--apple-hairline);
   border-radius: var(--apple-radius-sm);
-  background: transparent;
+  background: var(--apple-code-background);
   color: var(--apple-secondary-foreground);
   box-shadow: none;
   font-size: 0.8125rem;

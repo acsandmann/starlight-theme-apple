@@ -9,7 +9,7 @@
 }
 
 .expressive-code {
-  --ec-brdRad: 0.75rem;
+  --ec-brdRad: var(--apple-radius-panel);
   --ec-brdWd: 1px;
   margin-block: 1.5rem;
 }
