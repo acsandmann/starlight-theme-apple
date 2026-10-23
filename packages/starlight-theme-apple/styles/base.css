@@ -1,89 +1,69 @@
 html {
-  scroll-padding-top: calc(var(--apple-header-height) + 1.5rem);
-  text-rendering: optimizeLegibility;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 body {
   background: var(--apple-background);
   color: var(--apple-foreground);
   font-family: var(--apple-font-sans);
-  font-size: 1.0625rem;
-  line-height: 1.4706;
+  font-size: var(--sl-text-body);
+  line-height: var(--sl-line-height);
+  letter-spacing: -0.022em;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-synthesis-weight: none;
 }
 
 ::selection {
-  background: var(--apple-focus);
+  background: color-mix(in srgb, var(--apple-link) 28%, transparent);
 }
+
 :focus-visible {
   outline: 2px solid var(--apple-link);
-  outline-offset: 3px;
+  outline-offset: 2px;
 }
 
-a,
-button,
-[role="button"],
-summary,
-input,
-select {
-  transition:
-    color var(--apple-transition),
-    background-color var(--apple-transition),
-    border-color var(--apple-transition),
-    box-shadow var(--apple-transition),
-    opacity var(--apple-transition);
+:is(a, button, summary, select, input) {
+  transition-property:
+    color, background-color, border-color, box-shadow, opacity;
+  transition-duration: 160ms;
+  transition-timing-function: var(--apple-transition-easing);
 }
 
-:is(button, input, select, summary, a)[aria-disabled="true"],
-button:disabled,
-input:disabled,
-select:disabled {
-  cursor: not-allowed;
-  opacity: var(--apple-disabled-opacity);
+code,
+kbd,
+pre,
+samp {
+  letter-spacing: normal;
 }
 
-.main-frame,
-.main-pane {
-  background: var(--apple-background);
-}
-.main-pane,
-.main-pane main {
-  min-width: 0;
-}
-.content-panel {
-  padding-block: 0;
-}
-.content-panel + .content-panel,
-.main-pane > main > .content-panel:last-of-type {
+/* Starlight’s panels stack in one column; Apple pages flow without dividing rules. */
+.content-panel + .content-panel {
   border-top: 0;
 }
-.sl-container {
-  max-width: var(--apple-content-width);
+.main-pane main {
+  padding-bottom: 5rem;
 }
 
 .sl-banner {
-  width: 100%;
-  max-width: none;
-  margin-block: 2rem 1rem;
-  margin-inline: 0;
-  padding: 0.875rem var(--sl-content-pad-x);
-  border-block: 1px solid var(--apple-border);
-  background: var(--apple-aside-background);
-  box-shadow: none;
+  padding: 0.75rem var(--sl-content-pad-x);
+  border-bottom: 1px solid var(--apple-hairline);
+  background: var(--apple-secondary-background);
   color: var(--apple-foreground);
-  text-align: start;
+  font-size: 0.9375rem;
+  line-height: 1.4;
+  text-align: center;
 }
 .sl-banner a {
   color: var(--apple-link);
 }
 
 .sl-skip-link {
-  border: 1px solid var(--apple-border);
-  border-radius: 0.5rem;
-  background: var(--apple-secondary-background);
-  color: var(--apple-link);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.16);
+  border-radius: var(--apple-radius-sm);
+  background: var(--apple-button-background);
+  color: var(--apple-button-foreground);
+  font-size: 0.875rem;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -92,5 +72,7 @@ select:disabled {
   *::after {
     scroll-behavior: auto !important;
     transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
   }
 }

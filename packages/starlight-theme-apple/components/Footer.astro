@@ -1,0 +1,19 @@
+---
+import EditLink from "virtual:starlight/components/EditLink";
+import LastUpdated from "virtual:starlight/components/LastUpdated";
+import Pagination from "virtual:starlight/components/Pagination";
+
+const { editUrl, lastUpdated } = Astro.locals.starlightRoute;
+---
+
+<div class="apple-footer">
+  {
+    (editUrl || lastUpdated) && (
+      <div class="apple-footer__meta">
+        <EditLink />
+        <LastUpdated />
+      </div>
+    )
+  }
+  <Pagination />
+</div>

@@ -1,0 +1,40 @@
+---
+title: Media
+description: Images, screenshots, and captions.
+---
+
+import { Figure } from "starlight-theme-apple/components";
+import hero from "../../../assets/hero.webp";
+
+Images in Markdown stay unobtrusive: they fill the column with slightly rounded corners and no frame.
+
+![Starlight Theme Apple illustration](../../../assets/hero.webp)
+
+## Framed screenshots
+
+Use `<Figure framed>` for screenshots of an app or desktop. It adds a hairline, rounded corners, a soft shadow, and an optional caption.
+
+<Figure src={hero} alt="Starlight Theme Apple illustration" caption="A framed figure with a caption." framed />
+
+```mdx
+import { Figure } from "starlight-theme-apple/components";
+import screenshot from "../../assets/screenshot.png";
+import screenshotDark from "../../assets/screenshot-dark.png";
+
+<Figure src={screenshot} darkSrc={screenshotDark} alt="The app’s main window" caption="The main window." framed />
+```
+
+## Light and dark variants
+
+Pass `darkSrc` to show a different image in the dark appearance. Both images use Starlight’s appearance classes, so the switch needs no JavaScript.
+
+## Without MDX
+
+In Markdown, the same presentation is available as HTML:
+
+```html
+<figure class="apple-figure" data-frame>
+  <img src="/screenshot.png" alt="The app’s main window" />
+  <figcaption>The main window.</figcaption>
+</figure>
+```

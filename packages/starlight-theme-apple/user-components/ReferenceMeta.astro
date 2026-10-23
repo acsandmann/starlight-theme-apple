@@ -1,0 +1,30 @@
+---
+type Value = string | number | boolean;
+interface Item {
+  label: string;
+  value: Value;
+  /** Render the value as code. */
+  code?: boolean;
+}
+
+interface Props {
+  /** Metadata in display order, e.g. `{ Type: "boolean", Default: "false" }` or a list of items. */
+  items: Record<string, Value> | Item[];
+}
+
+const { items } = Astro.props;
+const rows: Item[] = Array.isArray(items)
+  ? items
+  : Object.entries(items).map(([label, value]) => ({ label, value }));
+---
+
+<dl class="apple-meta">
+  {
+    rows.map(({ label, value, code }) => (
+      <div>
+        <dt>{label}</dt>
+        <dd>{code ? <code>{String(value)}</code> : String(value)}</dd>
+      </div>
+    ))
+  }
+</dl>

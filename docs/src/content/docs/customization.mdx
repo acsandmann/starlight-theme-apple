@@ -1,26 +1,80 @@
 ---
 title: Customization
-description: Learn how to customize your Starlight site and the Starlight Apple Docs theme with custom CSS.
+description: Adjust tokens, layer your own styles, and override components.
 ---
 
-## Custom CSS
+Most sites need no custom CSS. When you want to adjust the design, change a few tokens rather than restyling components.
 
-To customize the styles applied to your Starlight site when using the Starlight Apple Docs theme, you can provide additional CSS files to modify or extend the Starlight and Starlight Apple Docs theme default styles.
+## Design tokens
 
-[Learn more about custom CSS in the Starlight documentation.](https://starlight.astro.build/guides/css-and-tailwind/#custom-css-styles)
+The theme’s palette, type, and shapes are CSS custom properties. Starlight’s own `--sl-*` variables are derived from them, so other Starlight components and plugins follow your changes.
+
+```css title="src/styles/custom.css"
+:root {
+  /* Dark appearance */
+  --apple-link: #ff9f0a;
+}
+:root[data-theme="light"] {
+  --apple-link: #c25e00;
+}
+```
+
+| Token | Purpose |
+| --- | --- |
+| `--apple-background` | Page, header, and sidebar background |
+| `--apple-secondary-background` | Raised surfaces such as cards and note asides |
+| `--apple-code-background` | Code listings, declarations, and file trees |
+| `--apple-fill` | Selected sidebar rows and pressed controls |
+| `--apple-fill-secondary` | Hover states, search field, value chips |
+| `--apple-foreground` | Primary text |
+| `--apple-secondary-foreground` | Supporting text and metadata |
+| `--apple-tertiary-foreground` | Group headings, markers, and icons |
+| `--apple-hairline` | Separators and borders |
+| `--apple-link` | Links, focus rings, and active markers |
+| `--apple-button-background` | Filled buttons |
+| `--apple-note`, `--apple-tip`, `--apple-caution`, `--apple-danger` | Aside and status colors |
+| `--apple-font-sans`, `--apple-font-mono` | Font stacks |
+| `--apple-radius-sm`, `--apple-radius-panel`, `--apple-radius-card` | Corner radii |
+
+Color tokens have separate values for each appearance. Set dark values on `:root` and light values on `:root[data-theme="light"]`.
+
+Layout uses Starlight’s variables directly. For example, `--sl-content-width` sets the reading column (51.25rem by default) and `--sl-sidebar-width` sets the sidebar.
+
+The theme uses the platform’s system fonts. It does not download or embed font files.
 
 ## Cascade layers
 
-Like Starlight, the Starlight Apple Docs theme uses [cascade layers](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Cascade_layers) internally to manage the order of its styles.
-This ensures a predictable CSS order and allows for simpler overrides.
-Any custom unlayered CSS will override the default styles from Starlight and the Starlight Apple Docs theme.
+The theme’s styles live in an `apple-docs` cascade layer above Starlight’s `starlight` layer. Unlayered CSS that you add with Starlight’s [`customCss`](https://starlight.astro.build/guides/css-and-tailwind/#custom-css-styles) always takes precedence, without `!important` or extra specificity.
 
-If you are using cascade layers, you can use [`@layer`](https://developer.mozilla.org/en-US/docs/Web/CSS/@layer) in your [custom CSS](https://starlight.astro.build/guides/css-and-tailwind/#custom-css-styles) to define the order of precedence for different layers relative to styles from the `starlight` and `apple-docs` layers:
+To control ordering yourself, declare your own layers around the theme’s:
 
-```css "starlight" "apple-docs"
-/* src/styles/custom.css */
+```css title="src/styles/custom.css"
 @layer my-reset, starlight, apple-docs, my-overrides;
 ```
 
-The example above defines a custom layer named `my-reset`, applied before all the Starlight and Starlight Apple Docs theme layers, and another named `my-overrides`, applied after all Starlight and Starlight Apple Docs theme layers.
-Any styles in the `my-overrides` layer would take precedence over the Starlight and Starlight Apple Docs theme styles, but Starlight or the Starlight Apple Docs theme could still change styles set in the `my-reset` layer.
+## Component overrides
+
+The theme provides these Starlight components:
+
+| Component | Provides |
+| --- | --- |
+| `Header` | Site title, header links, search, social links, appearance, and action |
+| `Sidebar` | Header links at the top of the small-screen menu, then Starlight’s sidebar |
+| `SocialIcons` | Icon links with `socialAttrs` |
+| `PageTitle` | Breadcrumbs and the page title |
+| `Footer` | Edit link, last-updated date, pagination, and the site row |
+| `Pagination` | Previous and next links |
+
+Your own [overrides](https://starlight.astro.build/guides/overriding-components/) always win, and so do overrides from plugins listed before the theme. The theme’s header uses Starlight’s `Search`, `SiteTitle`, `SocialIcons`, `ThemeSelect`, and `LanguageSelect` components, so overriding any of those still works.
+
+## Page presentation
+
+The theme picks a presentation from ordinary Starlight content:
+
+- **Guides and articles.** Any page. The first paragraph becomes the page’s introduction, set larger as on Apple’s article pages.
+- **References.** Pages built from [reference components](/starlight-theme-apple/reference/components/), which have their own compact hierarchy.
+- **Landing pages.** Pages using the `splash` template with a `hero`. The hero is centered with its image below. For wide screenshots, use `hero.image.html`, which is shown at up to 60rem wide.
+
+## Code
+
+Code blocks use Expressive Code with Xcode-inspired light and dark themes. Your `expressiveCode` settings are merged over the theme’s, so you can replace `themes` or adjust individual `styleOverrides`. Shell blocks render as plain listings; add `frame="terminal"` to a block to show a terminal window instead.

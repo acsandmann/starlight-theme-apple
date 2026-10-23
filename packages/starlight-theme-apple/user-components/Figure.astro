@@ -1,0 +1,58 @@
+---
+import { Image } from "astro:assets";
+
+type Source = ImageMetadata | string;
+interface Props {
+  src: Source;
+  /** Alternate image shown in the dark appearance. */
+  darkSrc?: Source;
+  alt: string;
+  caption?: string;
+  /** Frame screenshots with a hairline, rounded corners, and a soft shadow. */
+  framed?: boolean;
+  width?: number;
+  height?: number;
+}
+
+const {
+  src,
+  darkSrc,
+  alt,
+  caption,
+  framed = false,
+  width,
+  height,
+} = Astro.props;
+const size = { ...(width ? { width } : {}), ...(height ? { height } : {}) };
+const sources = darkSrc
+  ? [
+      { src, class: "dark:sl-hidden" },
+      { src: darkSrc, class: "light:sl-hidden" },
+    ]
+  : [{ src, class: undefined }];
+---
+
+<figure class="apple-figure" data-frame={framed ? "" : undefined}>
+  {
+    sources.map((source) =>
+      typeof source.src === "string" ? (
+        <img
+          src={source.src}
+          alt={alt}
+          class={source.class}
+          loading="lazy"
+          decoding="async"
+          {...size}
+        />
+      ) : (
+        <Image
+          src={source.src}
+          alt={alt}
+          {...(source.class ? { class: source.class } : {})}
+          {...size}
+        />
+      )
+    )
+  }
+  {caption && <figcaption>{caption}</figcaption>}
+</figure>

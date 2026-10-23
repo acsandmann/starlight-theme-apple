@@ -1,0 +1,195 @@
+---
+title: Reference components
+description: Present symbols, settings, and commands the way Apple’s API reference does.
+tableOfContents:
+  maxHeadingLevel: 2
+---
+
+import {
+  Availability,
+  Declaration,
+  Parameter,
+  ParameterList,
+  ReferenceEntry,
+  ReferenceMeta,
+  TopicLink,
+  TopicList,
+  ValueList,
+} from "starlight-theme-apple/components";
+
+Reference pages list many small entries: functions, settings, commands, or releases. These components give them Apple’s compact reference hierarchy: a name, a short abstract, a declaration, and structured details, separated by hairlines rather than boxed in cards.
+
+```js
+import { ReferenceEntry, Declaration } from "starlight-theme-apple/components";
+```
+
+## Example
+
+<ReferenceEntry>
+
+### `move(to:animated:)`
+
+<Availability items={["macOS 14+", "SDK 2.0+", { label: "Beta", variant: "tip" }]} />
+
+Moves the focused window to a destination in the current layout.
+
+<Declaration code="func move(to destination: Destination, animated: Bool = true) throws" />
+
+<ParameterList label="Parameters">
+  <Parameter name="destination">The direction or workspace to move the window to.</Parameter>
+  <Parameter name="animated">Whether the change animates. Respects the system’s reduce motion setting.</Parameter>
+</ParameterList>
+
+<ReferenceMeta items={[{ label: "Returns", value: "Void", code: true }, { label: "Throws", value: "LayoutError", code: true }]} />
+
+</ReferenceEntry>
+
+<ReferenceEntry>
+
+### `animation_easing`
+
+Curve used to accelerate and decelerate animations.
+
+<ReferenceMeta items={[{ label: "Type", value: "text" }, { label: "Default", value: '"ease_in_out"', code: true }]} />
+
+<ValueList label="Possible values" values={["ease_in_out", "linear", "ease_in_sine", "ease_out_sine", "ease_in_out_sine"]} />
+
+</ReferenceEntry>
+
+Put the entry’s heading inside `<ReferenceEntry>` so it appears in “On this page” and links to the entry. Consecutive entries share a single separator.
+
+## Components
+
+<ReferenceEntry>
+
+### `<ReferenceEntry>`
+
+Wraps one entry, including its heading. Renders `<section class="apple-entry">`.
+
+<ParameterList label="Props">
+  <Parameter name="as">`"section"` (default), `"article"`, or `"div"`.</Parameter>
+  <Parameter name="id">An anchor for the whole entry, useful when entry names repeat on a page.</Parameter>
+</ParameterList>
+
+</ReferenceEntry>
+
+<ReferenceEntry>
+
+### `<Declaration>`
+
+A declaration, signature, or usage synopsis in code voice. Long declarations wrap instead of scrolling.
+
+<ParameterList label="Props">
+  <Parameter name="code">The declaration text. Omit it to use the slot, which may contain links to types.</Parameter>
+  <Parameter name="label">An optional caption, such as “Usage”.</Parameter>
+</ParameterList>
+
+</ReferenceEntry>
+
+<ReferenceEntry>
+
+### `<ReferenceMeta>`
+
+Compact key–value metadata such as a type, default, or release date.
+
+<ParameterList label="Props">
+  <Parameter name="items">An object, `{ Type: "boolean" }`, or a list of `{ label, value, code? }`.</Parameter>
+</ParameterList>
+
+</ReferenceEntry>
+
+<ReferenceEntry>
+
+### `<ParameterList>` and `<Parameter>`
+
+Definitions for parameters, options, properties, or placeholder values. Names and descriptions sit side by side when there is room and stack on narrow screens.
+
+<ParameterList label="Props">
+  <Parameter name="label">On `<ParameterList>`: an optional caption, such as “Parameters”.</Parameter>
+  <Parameter name="name">On `<Parameter>`: the name, shown in code voice.</Parameter>
+  <Parameter name="id">On `<Parameter>`: an optional anchor, highlighted when targeted.</Parameter>
+</ParameterList>
+
+</ReferenceEntry>
+
+<ReferenceEntry>
+
+### `<ValueList>`
+
+A set of accepted literal values.
+
+<ParameterList label="Props">
+  <Parameter name="values">The values, shown in code voice.</Parameter>
+  <Parameter name="label">An optional caption, such as “Possible values”.</Parameter>
+</ParameterList>
+
+</ReferenceEntry>
+
+<ReferenceEntry>
+
+### `<Availability>`
+
+Platform or version availability, with optional status capsules.
+
+<ParameterList label="Props">
+  <Parameter name="items">Strings such as `"macOS 14+"`, or `{ label, variant }` where `variant` is `note`, `tip`, `caution`, or `danger`.</Parameter>
+</ParameterList>
+
+</ReferenceEntry>
+
+<ReferenceEntry>
+
+### `<TopicList>` and `<TopicLink>`
+
+Links to related pages or symbols with a short abstract, as in the Topics and See Also sections of Apple’s reference.
+
+<ParameterList label="Props">
+  <Parameter name="href">On `<TopicLink>`: the destination.</Parameter>
+  <Parameter name="title">On `<TopicLink>`: the link text.</Parameter>
+  <Parameter name="code">On `<TopicLink>`: show the title in code voice, for symbols and commands.</Parameter>
+  <Parameter name="description">On `<TopicLink>`: a short abstract. The slot can be used instead.</Parameter>
+</ParameterList>
+
+</ReferenceEntry>
+
+## Topics
+
+<TopicList>
+  <TopicLink href="/starlight-theme-apple/reference/configuration/" title="Configuration options" description="A complete reference page built from these components." />
+  <TopicLink href="/starlight-theme-apple/examples/kitchen-sink/" title="Kitchen sink" description="Starlight’s components in the theme." />
+  <TopicLink href="#generated-references" title="move(to:animated:)" code description="Topic links can use code voice for symbol names." />
+</TopicList>
+
+## Generated references
+
+Generators that write Markdown can emit the same structure as HTML, with no MDX or imports. Leave blank lines around the Markdown heading so it is still parsed as Markdown and appears in “On this page”.
+
+```html
+<section class="apple-entry">
+
+### `animate`
+
+<p>Animate layout changes and focus transitions.</p>
+<dl class="apple-meta">
+  <div><dt>Type</dt><dd>boolean</dd></div>
+  <div><dt>Default</dt><dd><code>false</code></dd></div>
+</dl>
+<pre class="apple-declaration"><code>tool window focus [<a href="#value-direction">DIRECTION</a>]</code></pre>
+<p class="apple-label">Arguments</p>
+<dl class="apple-parameters">
+  <div><dt><code>DIRECTION</code></dt><dd>Direction to focus.</dd></div>
+</dl>
+
+</section>
+```
+
+| Class | Element | Purpose |
+| --- | --- | --- |
+| `apple-entry` | `section`, `article` | One entry, including its heading |
+| `apple-label` | `p` | A small caption above a block, or a kind label above a heading |
+| `apple-declaration` | `pre` | Declaration or usage synopsis |
+| `apple-meta` | `dl`, `p` | Compact metadata; `dl` items are `div > dt + dd` |
+| `apple-parameters` | `dl` | Definitions; items are `div > dt + dd` |
+| `apple-values` | `ul` | Accepted values, each `li > code` |
+| `apple-availability` | `ul` | Availability; status items use `data-variant` |
+| `apple-topics` | `ul` | Topic links: `li > a`, then an optional `p` |

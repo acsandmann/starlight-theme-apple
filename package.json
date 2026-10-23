@@ -17,7 +17,8 @@
   "scripts": {
     "dev": "bun run --cwd docs dev",
     "build": "bun run --cwd docs build",
-    "publish:package": "npm publish --access public --workspace starlight-theme-apple"
+    "publish:package": "npm publish --access public --workspace starlight-theme-apple",
+    "test": "bun test --cwd packages/starlight-theme-apple"
   },
   "devDependencies": {
     "@trivago/prettier-plugin-sort-imports": "6.0.2",

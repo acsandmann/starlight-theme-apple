@@ -1,0 +1,55 @@
+---
+import config from "virtual:starlight/user-config";
+import LanguageSelect from "virtual:starlight/components/LanguageSelect";
+import Search from "virtual:starlight/components/Search";
+import SiteTitle from "virtual:starlight/components/SiteTitle";
+import SocialIcons from "virtual:starlight/components/SocialIcons";
+import ThemeSelect from "virtual:starlight/components/ThemeSelect";
+import themeConfig from "virtual:starlight-theme-apple/config";
+import NavLink from "./NavLink.astro";
+
+const shouldRenderSearch =
+  config.pagefind ||
+  config.components.Search !== "@astrojs/starlight/components/Search.astro";
+const { nav, action } = themeConfig;
+const hasSocial = (config.social ?? []).length > 0;
+---
+
+<div class="apple-header">
+  <div class="apple-header__title">
+    <SiteTitle />
+  </div>
+
+  {
+    nav.length > 0 && (
+      <nav
+        class="apple-header__nav print:hidden"
+        aria-label={Astro.locals.t("starlightThemeApple.primaryNav")}
+      >
+        <ul>
+          {nav.map((item) => (
+            <li>
+              <NavLink item={item} />
+            </li>
+          ))}
+        </ul>
+      </nav>
+    )
+  }
+
+  <div class="apple-header__end print:hidden">
+    {shouldRenderSearch && <Search />}
+    <div class="apple-header__controls">
+      {
+        hasSocial && (
+          <div class="social-icons">
+            <SocialIcons />
+          </div>
+        )
+      }
+      <ThemeSelect />
+      <LanguageSelect />
+    </div>
+    {action && <NavLink item={action} class="apple-header__action" />}
+  </div>
+</div>

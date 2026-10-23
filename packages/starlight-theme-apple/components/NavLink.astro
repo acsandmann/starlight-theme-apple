@@ -1,0 +1,24 @@
+---
+import { Icon } from "@astrojs/starlight/components";
+import type { StarlightThemeAppleLink } from "../libs/config";
+import { linkProps } from "../libs/links";
+
+interface Props {
+  item: StarlightThemeAppleLink;
+  class?: string;
+}
+
+const { item, class: className } = Astro.props;
+const { href, current, external, attrs } = linkProps(item, Astro.url.pathname);
+---
+
+<a
+  href={href}
+  class:list={["apple-nav-link", className]}
+  aria-current={current ? "true" : undefined}
+  rel={external ? "noopener" : undefined}
+  {...attrs}
+>
+  {item.icon && <Icon name={item.icon} />}
+  <span>{item.label}</span>
+</a>

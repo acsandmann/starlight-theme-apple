@@ -1,0 +1,16 @@
+---
+interface Props {
+  /** Declaration source. Omit to use the slot, which may contain links. */
+  code?: string;
+  /** Optional caption, such as “Usage”. */
+  label?: string;
+}
+
+const { code, label } = Astro.props;
+const html =
+  code === undefined ? (await Astro.slots.render("default")).trim() : undefined;
+---
+
+{label && <p class="apple-label">{label}</p>}
+<pre
+  class="apple-declaration">{html === undefined ? <code>{code}</code> : <code set:html={html} />}</pre>

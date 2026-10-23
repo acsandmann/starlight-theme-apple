@@ -1,28 +1,59 @@
 ---
-title: Starlight Apple Docs
+title: Starlight Theme Apple
 description: An Apple Developer Documentation-inspired theme for Astro Starlight.
+template: splash
 editUrl: false
 lastUpdated: false
+hero:
+  title: Documentation that feels native.
+  tagline: A Starlight theme modeled on Apple’s developer documentation. Add one plugin and keep writing Markdown.
+  actions:
+    - text: Get started
+      link: /starlight-theme-apple/getting-started/
+      variant: primary
+    - text: See the components
+      link: /starlight-theme-apple/examples/kitchen-sink/
+      icon: right-caret
+      variant: minimal
 ---
 
-import { Card, CardGrid } from '@astrojs/starlight/components'
+import { Card, CardGrid, LinkCard } from "@astrojs/starlight/components";
 
-Use Starlight's proven documentation features with a visual system modeled on the Apple developer documentation browser.
+```js title="astro.config.mjs" ins={2,6}
+import starlight from "@astrojs/starlight";
+import starlightThemeApple from "starlight-theme-apple";
 
-## Essentials
+export default {
+  integrations: [
+    starlight({ title: "My Docs", plugins: [starlightThemeApple()] }),
+  ],
+};
+```
+
+## Built on Starlight, refined for reading
+
+Navigation, search, internationalization, and accessibility come from Starlight. The theme adds the typography, hierarchy, and restraint of Apple’s documentation.
 
 <CardGrid>
-  <Card title="Install the theme" icon="puzzle">
-    Follow the <a href="getting-started/" data-umami-event="install-theme">getting started guide</a> to add the theme to a Starlight site.
+  <Card title="Apple typography" icon="document">
+    System fonts on a 17-point body, bold page titles, and section headings set on Apple’s documentation scale.
   </Card>
-  <Card title="Customize the design" icon="setting">
-    Adjust semantic tokens and cascade layers without replacing Starlight's components.
+  <Card title="A quiet navigator" icon="list-format">
+    Neutral sidebar selection, gray group headings, a hairline “On this page” rail, and breadcrumbs that link to section overviews.
   </Card>
-  <Card title="Review every component" icon="open-book">
-    Open the <a href="examples/kitchen-sink/" data-umami-event="review-components">kitchen sink</a> to inspect navigation, code, asides, cards, tables, and responsive behavior.
+  <Card title="Reference pages" icon="open-book">
+    Declarations, parameters, metadata, and topic lists for API, configuration, and command references.
+  </Card>
+  <Card title="Light and dark" icon="moon">
+    Both appearances follow Apple’s palettes, and the native appearance control keeps the system setting.
   </Card>
 </CardGrid>
 
-## Design principles
+## Explore
 
-The theme uses native system fonts, restrained surfaces, compact navigation, Apple-blue links, a narrow reading measure, and a lightweight “On This Page” column. It preserves Pagefind search, generated sidebars, Expressive Code, keyboard navigation, and Starlight's mobile menu.
+<CardGrid>
+  <LinkCard title="Getting started" description="Install the plugin and configure optional navigation." href="/starlight-theme-apple/getting-started/" />
+  <LinkCard title="Reference components" description="Build dense API and configuration references." href="/starlight-theme-apple/reference/components/" />
+  <LinkCard title="Customization" description="Tokens, cascade layers, and component overrides." href="/starlight-theme-apple/customization/" />
+  <LinkCard title="Kitchen sink" description="Every Starlight component in the theme." href="/starlight-theme-apple/examples/kitchen-sink/" />
+</CardGrid>

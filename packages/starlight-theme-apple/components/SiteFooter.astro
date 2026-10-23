@@ -1,0 +1,61 @@
+---
+import { Icon } from "@astrojs/starlight/components";
+import config from "virtual:starlight/user-config";
+import themeConfig from "virtual:starlight-theme-apple/config";
+import NavLink from "./NavLink.astro";
+
+const { siteTitle, siteTitleHref } = Astro.locals.starlightRoute;
+const { groups: configuredGroups, links, copyright } = themeConfig.footer;
+const groups = configuredGroups;
+---
+
+<footer class="apple-site-footer" data-directory={groups.length > 0 ? "" : undefined} data-pagefind-ignore>
+  <div class="apple-site-footer__inner">
+    {
+      groups.length > 0 && (
+        <nav
+          class="apple-site-footer__directory"
+          aria-label={Astro.locals.t("starlightThemeApple.footerNav")}
+        >
+          {groups.map((group) => (
+            <div class="apple-site-footer__group">
+              <h2>{group.label}</h2>
+              <ul>
+                {group.links.map((item) => (
+                  <li>
+                    <NavLink item={item} />
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </nav>
+      )
+    }
+    <div class="apple-site-footer__bottom">
+      <p>{copyright ?? <a href={siteTitleHref}>{siteTitle}</a>}</p>
+      {
+        links.length > 0 && (
+          <ul>
+            {links.map((item) => (
+              <li>
+                <NavLink item={item} />
+              </li>
+            ))}
+          </ul>
+        )
+      }
+      {
+        config.credits && (
+          <a
+            class="apple-site-footer__credits"
+            href="https://starlight.astro.build"
+          >
+            <Icon name="starlight" />
+            {Astro.locals.t("builtWithStarlight.label")}
+          </a>
+        )
+      }
+    </div>
+  </div>
+</footer>

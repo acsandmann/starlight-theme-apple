@@ -1,0 +1,14 @@
+---
+interface Props {
+  /** Parameter, option, or value name. Rendered as code. */
+  name: string;
+  id?: string;
+}
+
+const { name, id } = Astro.props;
+---
+
+<div id={id}>
+  <dt><code>{name}</code></dt>
+  <dd><slot /></dd>
+</div>

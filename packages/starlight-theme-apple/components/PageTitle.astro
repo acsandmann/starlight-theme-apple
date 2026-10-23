@@ -1,45 +1,29 @@
 ---
+import { breadcrumbs } from "../libs/breadcrumbs";
+
 const { entry, sidebar, siteTitle, siteTitleHref } =
   Astro.locals.starlightRoute;
-const title = entry.data.title;
-
-type Crumb = { href?: string; label: string };
-type SidebarItem =
-  | { type: "link"; isCurrent: boolean }
-  | { type: "group"; label: string; entries: SidebarItem[] };
-
-function findCurrentPath(
-  entries: SidebarItem[],
-  ancestors: Crumb[] = []
-): Crumb[] | undefined {
-  for (const item of entries) {
-    if (item.type === "link" && item.isCurrent) return ancestors;
-    if (item.type === "group") {
-      const path = findCurrentPath(item.entries, [
-        ...ancestors,
-        { label: item.label },
-      ]);
-      if (path) return path;
-    }
-  }
-}
-
-const parents = findCurrentPath(sidebar as SidebarItem[]) ?? [];
+const crumbs = breadcrumbs(sidebar, siteTitle, siteTitleHref);
 ---
 
-<nav class="apple-breadcrumbs" aria-label="Breadcrumb">
-  <a href={siteTitleHref}>{siteTitle}</a>
-  {
-    parents.map((parent) => (
-      <>
-        <span aria-hidden="true">›</span>
-        {parent.href ? (
-          <a href={parent.href}>{parent.label}</a>
-        ) : (
-          <span>{parent.label}</span>
-        )}
-      </>
-    ))
-  }
-</nav>
-<h1 id="_top">{title}</h1>
+{
+  crumbs.length > 0 && (
+    <nav
+      class="apple-breadcrumbs"
+      aria-label={Astro.locals.t("starlightThemeApple.breadcrumbs")}
+    >
+      <ol>
+        {crumbs.map((crumb) => (
+          <li>
+            {crumb.href ? (
+              <a href={crumb.href}>{crumb.label}</a>
+            ) : (
+              <span>{crumb.label}</span>
+            )}
+          </li>
+        ))}
+      </ol>
+    </nav>
+  )
+}
+<h1 id="_top" class="apple-page-title">{entry.data.title}</h1>

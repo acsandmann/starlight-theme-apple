@@ -1,24 +1,19 @@
 ---
-title: Getting Started
+title: Getting started
+description: Add the theme to a Starlight site.
 ---
-
-Starlight theme inspired by [Apple Developer Documentation](https://developer.apple.com/documentation/).
-
-## Prerequisites
-
-You will need to have a Starlight website set up.
-If you don't have one yet, you can follow the ["Getting Started"](https://starlight.astro.build/getting-started) guide in the Starlight docs to create one.
-
-## Installation
 
 import { Steps, Tabs, TabItem } from "@astrojs/starlight/components";
 
+Add the theme to an existing [Starlight](https://starlight.astro.build/getting-started/) site. It needs no configuration and no custom CSS.
+
+## Install the theme
+
 <Steps>
 
-1. `starlight-theme-apple` is a Starlight [plugin](https://starlight.astro.build/reference/plugins/). Install it by running the following command in your terminal:
+1. Add the package to your project.
 
    <Tabs syncKey="pkg">
-
    <TabItem label="npm">
 
    ```sh
@@ -26,7 +21,13 @@ import { Steps, Tabs, TabItem } from "@astrojs/starlight/components";
    ```
 
    </TabItem>
+   <TabItem label="pnpm">
 
+   ```sh
+   pnpm add starlight-theme-apple
+   ```
+
+   </TabItem>
    <TabItem label="bun">
 
    ```sh
@@ -34,7 +35,6 @@ import { Steps, Tabs, TabItem } from "@astrojs/starlight/components";
    ```
 
    </TabItem>
-
    <TabItem label="Yarn">
 
    ```sh
@@ -42,27 +42,60 @@ import { Steps, Tabs, TabItem } from "@astrojs/starlight/components";
    ```
 
    </TabItem>
-
    </Tabs>
 
-2. Configure the plugin in your Starlight [configuration](https://starlight.astro.build/reference/configuration/#plugins) in the `astro.config.mjs` file.
+2. Add the plugin to your Starlight configuration.
 
-   ```diff lang="js"
-   // astro.config.mjs
-   import starlight from '@astrojs/starlight'
-   import { defineConfig } from 'astro/config'
-   +import starlightThemeApple from 'starlight-theme-apple'
+   ```js title="astro.config.mjs" ins={3,8}
+   import starlight from "@astrojs/starlight";
+   import { defineConfig } from "astro/config";
+   import starlightThemeApple from "starlight-theme-apple";
 
    export default defineConfig({
      integrations: [
        starlight({
-   +      plugins: [starlightThemeApple()],
-         title: 'My Docs',
+         plugins: [starlightThemeApple()],
+         title: "My Docs",
        }),
      ],
-   })
+   });
    ```
 
-3. [Start the development server](https://starlight.astro.build/getting-started/#start-the-development-server) to preview the plugin in action.
+3. [Start the development server](https://starlight.astro.build/getting-started/#start-the-development-server).
 
 </Steps>
+
+The theme requires Starlight 0.41 or later and Astro 7.
+
+## What you get
+
+- Apple’s documentation typography, palette, and spacing in light and dark appearances.
+- A compact navigation bar with Starlight search, social links, and the appearance control.
+- Breadcrumbs above each title, a quiet sidebar, and a hairline “On this page” rail.
+- Restyled Starlight components: asides, cards, link cards, tabs, steps, badges, file trees, and code.
+- Code blocks in Xcode’s syntax colors through Expressive Code.
+- [Reference components](/starlight-theme-apple/reference/components/) for API, configuration, and command references.
+
+Everything else is ordinary Starlight. Write pages in Markdown or MDX, configure the sidebar as usual, and use Starlight components.
+
+## Add header links
+
+Optional settings add primary navigation to the header and a site row to the footer:
+
+```js title="astro.config.mjs"
+starlightThemeApple({
+  nav: [
+    { label: "Guides", link: "/guides/" },
+    { label: "Reference", link: "/reference/" },
+  ],
+  action: { label: "Download", link: "https://example.com/download" },
+  footer: {
+    links: [{ label: "GitHub", link: "https://github.com/example/project" }],
+    copyright: "© 2026 Example",
+  },
+});
+```
+
+Links starting with `/` are resolved against your site’s `base`, so the same configuration works on GitHub Pages project sites. On small screens, header links move to the top of the navigation menu.
+
+See [Configuration](/starlight-theme-apple/configuration/) for every option.

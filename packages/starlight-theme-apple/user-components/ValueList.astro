@@ -1,0 +1,20 @@
+---
+interface Props {
+  values: string[];
+  /** Optional caption, such as “Possible values”. */
+  label?: string;
+}
+
+const { values, label } = Astro.props;
+---
+
+{label && <p class="apple-label">{label}</p>}
+<ul class="apple-values">
+  {
+    values.map((value) => (
+      <li>
+        <code>{value}</code>
+      </li>
+    ))
+  }
+</ul>

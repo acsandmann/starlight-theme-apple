@@ -1,0 +1,27 @@
+---
+import Default from "@astrojs/starlight/components/Sidebar.astro";
+import themeConfig from "virtual:starlight-theme-apple/config";
+import NavLink from "./NavLink.astro";
+
+const { nav, action } = themeConfig;
+const items = action ? [...nav, action] : nav;
+---
+
+{
+  /* Header links are repeated at the top of the small-screen navigation menu. */
+  items.length > 0 && (
+    <nav
+      class="apple-menu-nav md:sl-hidden"
+      aria-label={Astro.locals.t("starlightThemeApple.primaryNav")}
+    >
+      <ul>
+        {items.map((item) => (
+          <li>
+            <NavLink item={item} />
+          </li>
+        ))}
+      </ul>
+    </nav>
+  )
+}
+<Default />

@@ -1,0 +1,17 @@
+---
+interface Props {
+  href: string;
+  title: string;
+  /** Render the title in code voice, for symbols, commands, and settings. */
+  code?: boolean;
+  /** Short abstract. The slot can be used instead for rich content. */
+  description?: string;
+}
+
+const { href, title, code, description } = Astro.props;
+---
+
+<li>
+  <a href={href}>{code ? <code>{title}</code> : title}</a>
+  {description ? <p>{description}</p> : <slot />}
+</li>

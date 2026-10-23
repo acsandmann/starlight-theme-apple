@@ -1,0 +1,21 @@
+---
+type Variant = "note" | "tip" | "caution" | "danger";
+interface Props {
+  /** Platforms or versions, e.g. `["macOS 14+", "SDK 2.0+"]`, and optional status items. */
+  items: Array<string | { label: string; variant?: Variant }>;
+}
+
+const { items } = Astro.props;
+---
+
+<ul class="apple-availability">
+  {
+    items.map((item) =>
+      typeof item === "string" ? (
+        <li>{item}</li>
+      ) : (
+        <li data-variant={item.variant}>{item.label}</li>
+      )
+    )
+  }
+</ul>

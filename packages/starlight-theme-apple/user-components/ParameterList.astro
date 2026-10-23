@@ -1,0 +1,11 @@
+---
+interface Props {
+  /** Optional caption, such as “Parameters” or “Options”. */
+  label?: string;
+}
+
+const { label } = Astro.props;
+---
+
+{label && <p class="apple-label">{label}</p>}
+<dl class="apple-parameters"><slot /></dl>

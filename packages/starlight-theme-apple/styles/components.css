@@ -1,0 +1,599 @@
+/* ============================================================
+   Asides: tinted panels with a colored label, like Apple’s Note, Tip, Important, Warning.
+   ============================================================ */
+
+.starlight-aside {
+  --apple-aside-accent: var(--apple-note);
+  padding: 0.9375rem 1.125rem;
+  border: 1px solid
+    color-mix(in srgb, var(--apple-aside-accent) 32%, transparent);
+  border-radius: var(--apple-radius-panel);
+  background: color-mix(
+    in srgb,
+    var(--apple-aside-accent) 7%,
+    var(--apple-background)
+  );
+  color: var(--apple-foreground);
+  font-size: 0.9375rem;
+  line-height: 1.4667;
+  letter-spacing: -0.016em;
+}
+.starlight-aside--note {
+  --apple-aside-accent: var(--apple-note);
+  background: var(--apple-secondary-background);
+  border-color: var(--apple-hairline);
+}
+.starlight-aside--tip {
+  --apple-aside-accent: var(--apple-tip);
+}
+.starlight-aside--caution {
+  --apple-aside-accent: var(--apple-caution);
+}
+.starlight-aside--danger {
+  --apple-aside-accent: var(--apple-danger);
+}
+.starlight-aside__icon {
+  display: none;
+}
+.starlight-aside__title {
+  color: var(--apple-aside-accent);
+  font-size: inherit;
+  font-weight: 600;
+  line-height: inherit;
+  letter-spacing: inherit;
+}
+.starlight-aside--note .starlight-aside__title {
+  color: var(--apple-foreground);
+}
+.starlight-aside__title + .starlight-aside__content {
+  margin-top: 0.25rem;
+}
+.sl-markdown-content .starlight-aside__content :is(p, ul, ol) {
+  margin-block: 0.5rem 0;
+}
+.sl-markdown-content .starlight-aside__content > :first-child {
+  margin-top: 0;
+}
+.starlight-aside__content a {
+  color: var(--apple-link);
+}
+.sl-markdown-content .starlight-aside code {
+  background: none;
+}
+
+/* ============================================================
+   Cards: soft tiles for feature discovery
+   ============================================================ */
+
+.card-grid {
+  gap: 1rem;
+}
+.card-grid.stagger {
+  --stagger-height: 2rem;
+}
+.sl-markdown-content .card {
+  gap: 0.5rem;
+  padding: 1.5rem 1.5rem 1.625rem;
+  border: 0;
+  border-radius: var(--apple-radius-card);
+  background: var(--apple-secondary-background);
+  box-shadow: none;
+}
+.sl-markdown-content .card .title {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.75rem;
+  color: var(--apple-foreground);
+  font-size: 1.1875rem;
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: 0.012em;
+}
+.sl-markdown-content .card .icon {
+  width: 1.75rem;
+  height: 1.75rem;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--apple-link);
+}
+.sl-markdown-content .card .body {
+  color: var(--apple-secondary-foreground);
+  font-size: 0.9375rem;
+  line-height: 1.4667;
+  letter-spacing: -0.016em;
+}
+.sl-markdown-content .card .body > :first-child {
+  margin-top: 0;
+}
+
+/* Link cards: hairline rows that read like Apple topic links. */
+.sl-markdown-content .sl-link-card {
+  align-items: center;
+  gap: 0.5rem 1rem;
+  padding: 1.125rem 1.25rem;
+  border: 1px solid var(--apple-hairline);
+  border-radius: var(--apple-radius-panel);
+  background: var(--apple-background);
+  box-shadow: none;
+}
+.sl-markdown-content .sl-link-card:hover {
+  border-color: var(--apple-hairline);
+  background: var(--apple-fill-secondary);
+}
+.sl-markdown-content .sl-link-card .stack {
+  gap: 0.25rem;
+}
+.sl-markdown-content .sl-link-card a {
+  color: var(--apple-link);
+  text-decoration: none;
+}
+.sl-markdown-content .sl-link-card .title {
+  font-size: 1.0625rem;
+  font-weight: 600;
+  line-height: 1.375rem;
+  letter-spacing: -0.022em;
+}
+.sl-markdown-content .sl-link-card .description {
+  color: var(--apple-secondary-foreground);
+  font-size: 0.9375rem;
+  line-height: 1.4667;
+  letter-spacing: -0.016em;
+}
+.sl-markdown-content .sl-link-card .icon {
+  width: 1rem;
+  height: 1rem;
+  color: var(--apple-tertiary-foreground);
+  transition: transform var(--apple-transition);
+}
+.sl-markdown-content .sl-link-card:hover .icon {
+  color: var(--apple-link);
+  transform: translateX(2px);
+}
+.sl-markdown-content .sl-link-card:focus-within {
+  outline: 2px solid var(--apple-link);
+  outline-offset: 2px;
+}
+.sl-markdown-content .sl-link-card a:focus-visible {
+  outline: 0;
+}
+
+/* ============================================================
+   Link buttons: Apple pill buttons
+   ============================================================ */
+
+.sl-link-button {
+  gap: 0.375rem;
+  min-height: 2.75rem;
+  padding: 0.6875rem 1.375rem;
+  border: 0;
+  border-radius: 980px;
+  font-size: 1.0625rem;
+  font-weight: 400;
+  line-height: 1.375rem;
+  letter-spacing: -0.022em;
+  text-decoration: none;
+}
+.sl-link-button svg {
+  width: 1rem;
+  height: 1rem;
+}
+.sl-link-button.primary {
+  border: 0;
+  background: var(--apple-button-background);
+  color: var(--apple-button-foreground);
+}
+.sl-link-button.primary:hover {
+  background: var(--apple-button-background-hover);
+  color: var(--apple-button-foreground);
+}
+.sl-link-button.secondary {
+  border: 1px solid var(--apple-link);
+  background: transparent;
+  color: var(--apple-link);
+}
+.sl-link-button.secondary:hover {
+  background: var(--apple-link);
+  color: var(--apple-background);
+}
+.sl-link-button.minimal {
+  padding-inline: 0;
+  background: transparent;
+  color: var(--apple-link);
+}
+.sl-link-button.minimal:hover {
+  color: var(--apple-link);
+  text-decoration: underline;
+}
+.sl-link-button:focus-visible {
+  outline: 0;
+  box-shadow:
+    0 0 0 3px var(--apple-background),
+    0 0 0 5px var(--apple-link);
+}
+.sl-markdown-content .sl-link-button {
+  margin-inline-end: 0.75rem;
+}
+
+/* ============================================================
+   Tabs: a segmented-style underline bar
+   ============================================================ */
+
+starlight-tabs .tablist-wrapper {
+  margin-bottom: 1rem;
+}
+starlight-tabs [role="tablist"] {
+  gap: 1.5rem;
+  border-bottom: 1px solid var(--apple-hairline);
+}
+starlight-tabs [role="tab"] {
+  margin-bottom: -1px;
+  padding: 0.5rem 0;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  color: var(--apple-secondary-foreground);
+  font-size: 0.9375rem;
+  font-weight: 400;
+  line-height: 1.375rem;
+  letter-spacing: -0.016em;
+  text-decoration: none;
+}
+starlight-tabs [role="tab"]:hover {
+  color: var(--apple-foreground);
+}
+starlight-tabs [role="tab"][aria-selected="true"] {
+  border-bottom-color: var(--apple-foreground);
+  color: var(--apple-foreground);
+  font-weight: 600;
+}
+starlight-tabs [role="tab"]:focus-visible {
+  outline-offset: -2px;
+}
+
+/* ============================================================
+   Steps
+   ============================================================ */
+
+.sl-steps {
+  --bullet-size: 1.75rem;
+}
+.sl-steps > li {
+  padding-inline-start: 2.75rem;
+  padding-bottom: 0.5rem;
+}
+.sl-steps > li::before {
+  background: var(--apple-foreground);
+  color: var(--apple-background);
+  box-shadow: none;
+  font-size: 0.8125rem;
+  letter-spacing: 0;
+}
+.sl-steps > li::after {
+  background: var(--apple-hairline);
+}
+
+/* ============================================================
+   Badges: quiet capsules
+   ============================================================ */
+
+.sl-badge {
+  --apple-badge-color: var(--apple-link);
+  display: inline-block;
+  padding: 0.0625rem 0.5rem;
+  border: 0;
+  border-radius: 980px;
+  background: color-mix(in srgb, var(--apple-badge-color) 13%, transparent);
+  color: var(--apple-badge-color);
+  font-family: var(--apple-font-sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.125rem;
+  letter-spacing: 0;
+  vertical-align: middle;
+}
+.sl-badge.note {
+  --apple-badge-color: var(--apple-link);
+}
+.sl-badge.tip,
+.sl-badge.success {
+  --apple-badge-color: var(--apple-success);
+}
+.sl-badge.caution {
+  --apple-badge-color: var(--apple-caution);
+}
+.sl-badge.danger {
+  --apple-badge-color: var(--apple-danger);
+}
+.sl-badge.large {
+  padding-inline: 0.625rem;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+}
+.sidebar-content .sl-badge {
+  padding: 0 0.4375rem;
+  font-size: 0.6875rem;
+  line-height: 1.125rem;
+}
+.sidebar-content a[aria-current="page"] > .sl-badge {
+  border: 0;
+  background: color-mix(in srgb, var(--apple-badge-color) 13%, transparent);
+  color: var(--apple-badge-color);
+}
+
+/* ============================================================
+   File tree
+   ============================================================ */
+
+starlight-file-tree {
+  --x-space: 1.25rem;
+  padding: 1rem 1.25rem;
+  border: 0;
+  border-radius: var(--apple-radius-panel);
+  background: var(--apple-code-background);
+  font-size: 0.875rem;
+}
+starlight-file-tree .tree-icon,
+starlight-file-tree .comment {
+  color: var(--apple-tertiary-foreground);
+}
+starlight-file-tree .highlight .tree-entry {
+  color: var(--apple-link);
+}
+
+/* ============================================================
+   Splash hero: a centered headline, pill actions, and media below
+   ============================================================ */
+
+.hero {
+  grid-template-columns: 100%;
+  justify-items: center;
+  gap: clamp(2.5rem, 6vw, 4rem);
+  padding-block: clamp(2.5rem, 8vw, 5.5rem) clamp(2rem, 5vw, 3.5rem);
+  text-align: center;
+}
+.hero > :is(img, .hero-html) {
+  order: 2;
+  width: min(100%, 20rem);
+  margin-inline: auto;
+}
+.hero > .hero-html {
+  width: min(100%, 60rem);
+}
+.hero .stack {
+  align-items: center;
+  gap: 2rem;
+  text-align: center;
+}
+.hero .copy {
+  align-items: center;
+  gap: 1rem;
+}
+.hero .copy > * {
+  max-width: 40rem;
+}
+.hero h1 {
+  color: var(--apple-foreground);
+  font-size: clamp(2.5rem, 1.6rem + 4.5vw, 4.5rem);
+  font-weight: 600;
+  line-height: 1.05;
+  letter-spacing: -0.015em;
+  text-wrap: balance;
+}
+.hero .tagline {
+  color: var(--apple-secondary-foreground);
+  font-size: clamp(1.1875rem, 1rem + 0.9vw, 1.75rem);
+  font-weight: 400;
+  line-height: 1.25;
+  letter-spacing: 0.007em;
+  text-wrap: balance;
+}
+.hero .actions {
+  justify-content: center;
+  gap: 0.75rem 1rem;
+}
+
+/* Splash pages: centered section headings and introductions. */
+:root[data-has-hero]
+  .sl-markdown-content
+  > :is(h2, .sl-heading-wrapper.level-h2) {
+  margin-top: clamp(3.5rem, 8vw, 5.5rem);
+  text-align: center;
+}
+:root[data-has-hero]
+  .sl-markdown-content
+  > :is(h2, .sl-heading-wrapper.level-h2)
+  + p {
+  max-width: 42rem;
+  margin-inline: auto;
+  color: var(--apple-secondary-foreground);
+  font-size: 1.1875rem;
+  line-height: 1.42;
+  text-align: center;
+}
+:root[data-has-hero] .sl-markdown-content > p:first-child {
+  font-size: clamp(1.1875rem, 1rem + 0.6vw, var(--apple-text-lead));
+  max-width: 42rem;
+  margin-inline: auto;
+  text-align: center;
+}
+
+@media (min-width: 50rem) {
+  .hero {
+    grid-template-columns: 100%;
+  }
+  .hero .stack,
+  .hero .copy {
+    align-items: center;
+    text-align: center;
+  }
+  .hero .actions {
+    justify-content: center;
+  }
+}
+
+/* ============================================================
+   Footer and pagination
+   ============================================================ */
+
+.apple-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  margin-top: 4rem;
+}
+
+.apple-footer__meta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.5rem 2rem;
+  color: var(--apple-secondary-foreground);
+  font-size: 0.8125rem;
+  line-height: 1.125rem;
+  letter-spacing: -0.008em;
+}
+.apple-footer__meta > :only-child {
+  margin-inline-start: auto;
+}
+.apple-footer__meta a {
+  gap: 0.375rem;
+  color: var(--apple-link);
+}
+.apple-footer__meta a:hover {
+  color: var(--apple-link);
+  text-decoration: underline;
+}
+
+.apple-pagination {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--apple-hairline);
+}
+.apple-pagination a {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+  min-width: 0;
+  text-decoration: none;
+}
+.apple-pagination a[rel="next"] {
+  grid-column: 2;
+  align-items: flex-end;
+  text-align: end;
+}
+.apple-pagination__label {
+  color: var(--apple-secondary-foreground);
+  font-size: 0.8125rem;
+  line-height: 1.125rem;
+  letter-spacing: -0.008em;
+}
+.apple-pagination__title {
+  color: var(--apple-link);
+  font-size: 1.0625rem;
+  line-height: 1.375rem;
+  overflow-wrap: break-word;
+}
+.apple-pagination a:hover .apple-pagination__title {
+  text-decoration: underline;
+}
+
+/* Site navigation lives outside the article columns, across the whole page. */
+.apple-site-footer {
+  position: relative;
+  border-top: 1px solid var(--apple-hairline);
+  background: var(--apple-secondary-background);
+  color: var(--apple-secondary-foreground);
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  letter-spacing: -0.008em;
+}
+.apple-site-footer__inner {
+  width: min(100%, 67.5rem);
+  margin-inline: auto;
+  padding: 1.75rem 1.5rem 1rem;
+}
+.apple-site-footer a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  color: inherit;
+  text-decoration: none;
+}
+.apple-site-footer a:hover {
+  color: var(--apple-foreground);
+  text-decoration: underline;
+}
+.apple-site-footer__directory {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  gap: 1.5rem 3rem;
+  padding-bottom: 1.5rem;
+}
+.apple-site-footer__group h2 {
+  margin: 0 0 0.625rem;
+  color: var(--apple-foreground);
+  font-size: inherit;
+  font-weight: 600;
+  line-height: inherit;
+}
+.apple-site-footer ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.apple-site-footer__group li + li {
+  margin-top: 0.5rem;
+}
+.apple-site-footer__bottom {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--apple-hairline);
+  font-size: 0.75rem;
+}
+.apple-site-footer__bottom p {
+  margin: 0;
+  margin-inline-end: auto;
+}
+.apple-site-footer__bottom ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.5rem;
+}
+.apple-site-footer svg {
+  width: 0.875rem;
+  height: 0.875rem;
+}
+@media (min-width: 50rem) {
+  .apple-site-footer {
+    /* Cover the fixed navigator only as the footer enters the viewport. */
+    z-index: calc(var(--sl-z-index-menu) + 1);
+  }
+}
+@media print {
+  .apple-site-footer {
+    display: none;
+  }
+}
+
+@media (max-width: 49.99rem) {
+  .apple-pagination {
+    grid-template-columns: 1fr;
+  }
+  .apple-pagination a[rel="next"] {
+    grid-column: 1;
+  }
+}
+
+.apple-site-footer:not([data-directory]) .apple-site-footer__inner {
+  padding-block: 1.25rem;
+}
+.apple-site-footer:not([data-directory]) .apple-site-footer__bottom {
+  padding-top: 0;
+  border-top: 0;
+}

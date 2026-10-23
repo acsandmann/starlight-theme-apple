@@ -1,88 +1,12 @@
-.sl-markdown-content :not(pre) > code:not(:where(.not-content *)) {
-  padding: 0;
-  border: 0;
-  border-radius: 0;
-  background: transparent;
-  color: inherit;
-  font-family: var(--apple-font-mono);
-  font-size: 0.88em;
-}
-
-.expressive-code {
-  --ec-brdRad: var(--apple-radius-panel);
-  --ec-brdWd: 1px;
+/* Code blocks are styled through Expressive Code’s `styleOverrides` (see libs/expressive-code.ts). */
+.sl-markdown-content .expressive-code {
   margin-block: 1.5rem;
 }
-.expressive-code figure.frame {
-  box-shadow: none !important;
-}
-.expressive-code .frame .header {
-  min-height: 2.25rem;
-  border-color: var(--apple-hairline) !important;
-  background: var(--apple-code-background) !important;
-}
-.expressive-code .frame .title {
-  color: var(--apple-secondary-foreground) !important;
-  font-family: var(--apple-font-sans) !important;
-  font-size: 0.8125rem !important;
-  font-weight: 500 !important;
+.expressive-code .frame.has-title:not(.is-terminal) .title,
+.expressive-code .frame.is-terminal .title {
+  font-weight: 600;
+  letter-spacing: -0.008em;
 }
 .expressive-code pre {
-  border-color: var(--apple-hairline) !important;
-  background: var(--apple-code-background) !important;
-}
-.expressive-code pre code {
-  font-size: 0.9375rem !important;
-  line-height: 1.5625rem !important;
-}
-.expressive-code .copy button {
-  border-color: var(--apple-hairline) !important;
-  border-radius: 0.5rem !important;
-  background: var(--apple-secondary-background) !important;
-  color: var(--apple-secondary-foreground) !important;
-}
-
-.sl-markdown-content kbd:not(:where(.not-content *)) {
-  display: inline-flex;
-  align-items: center;
-  min-height: 1.5rem;
-  padding-inline: 0.4rem;
-  border: 1px solid var(--apple-border);
-  border-bottom-width: 2px;
-  border-radius: 0.35rem;
-  background: var(--apple-secondary-background);
-  color: var(--apple-secondary-foreground);
-  font-family: var(--apple-font-sans);
-  font-size: 0.8125rem;
-  line-height: 1;
-  vertical-align: 0.08em;
-}
-
-.sl-markdown-content mark:not(:where(.not-content *)) {
-  padding-inline: 0.15em;
-  border-radius: 0.2em;
-  background: color-mix(in srgb, var(--apple-warning) 28%, transparent);
-  color: var(--apple-foreground);
-}
-.expressive-code .copy button:is(:hover, :focus-visible) {
-  border-color: var(--apple-border) !important;
-  background: var(--apple-active-surface) !important;
-  color: var(--apple-foreground) !important;
-}
-.sl-markdown-content starlight-file-tree {
-  display: block;
-  margin-block: 1.5rem;
-  padding: 1rem;
-  border: 1px solid var(--apple-hairline);
-  border-radius: 0.75rem;
-  background: var(--apple-code-background);
-}
-.sl-markdown-content starlight-file-tree .tree-entry {
-  min-height: 1.75rem;
-}
-.sl-markdown-content starlight-file-tree .tree-icon {
-  color: var(--apple-tertiary-foreground);
-}
-.sl-markdown-content starlight-file-tree .comment {
-  color: var(--apple-tertiary-foreground);
+  scrollbar-width: thin;
 }

@@ -1,0 +1,104 @@
+---
+title: Configuration options
+description: Every option accepted by starlightThemeApple().
+tableOfContents:
+  maxHeadingLevel: 3
+---
+
+import {
+  Declaration,
+  Parameter,
+  ParameterList,
+  ReferenceEntry,
+  ReferenceMeta,
+  TopicLink,
+  TopicList,
+} from "starlight-theme-apple/components";
+
+The options accepted by the theme’s plugin function. All of them are optional.
+
+<Declaration code="function starlightThemeApple(config?: StarlightThemeAppleUserConfig): StarlightPlugin" />
+
+## Navigation
+
+<ReferenceEntry id="option-nav">
+
+### `nav`
+
+Primary links shown after the site title and at the top of the small-screen navigation menu.
+
+<ReferenceMeta items={[{ label: "Type", value: "Link[]", code: true }, { label: "Default", value: "[]", code: true }]} />
+
+```js
+nav: [{ label: "Guides", link: "/guides/" }]
+```
+
+</ReferenceEntry>
+
+<ReferenceEntry id="option-action">
+
+### `action`
+
+One emphasized header button, such as “Download”. On small screens it joins the header links in the navigation menu.
+
+<ReferenceMeta items={[{ label: "Type", value: "Link", code: true }, { label: "Default", value: "Not set" }]} />
+
+</ReferenceEntry>
+
+<ReferenceEntry id="option-socialattrs">
+
+### `socialAttrs`
+
+HTML attributes added to Starlight’s social links, keyed by the link’s `icon`.
+
+<ReferenceMeta items={[{ label: "Type", value: "Record<string, Attributes>", code: true }, { label: "Default", value: "{}", code: true }]} />
+
+</ReferenceEntry>
+
+## Footer
+
+<ReferenceEntry id="option-footer-links">
+
+### `footer.links`
+
+Supporting links shown in the row at the bottom of each page.
+
+<ReferenceMeta items={[{ label: "Type", value: "Link[]", code: true }, { label: "Default", value: "[]", code: true }]} />
+
+</ReferenceEntry>
+
+<ReferenceEntry id="option-footer-copyright">
+
+### `footer.copyright`
+
+A short line of text, such as a copyright notice, shown at the start of the footer row instead of the site title.
+
+<ReferenceMeta items={[{ label: "Type", value: "string", code: true }, { label: "Default", value: "Not set" }]} />
+
+</ReferenceEntry>
+
+## Types
+
+<ReferenceEntry id="type-link">
+
+### `Link`
+
+A link rendered by the theme.
+
+<Declaration code={`interface Link {\n  label: string;\n  link: string;\n  icon?: StarlightIcon;\n  attrs?: Record<string, string | number | boolean>;\n}`} />
+
+<ParameterList label="Properties">
+  <Parameter name="label">Visible text.</Parameter>
+  <Parameter name="link">A URL, or a path starting with `/` that is resolved against Astro’s `base`, as Starlight resolves sidebar links.</Parameter>
+  <Parameter name="icon">A [Starlight icon](https://starlight.astro.build/reference/icons/) shown before the label.</Parameter>
+  <Parameter name="attrs">HTML attributes for the `<a>` element, such as analytics `data-*` attributes.</Parameter>
+</ParameterList>
+
+</ReferenceEntry>
+
+## See also
+
+<TopicList>
+  <TopicLink href="/starlight-theme-apple/configuration/" title="Configuration" description="Examples and behavior of each option." />
+  <TopicLink href="/starlight-theme-apple/reference/components/" title="Reference components" description="Components for API, configuration, and command references." />
+</TopicList>

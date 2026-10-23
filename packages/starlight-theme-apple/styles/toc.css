@@ -1,78 +1,85 @@
+/* “On this page”: a quiet rail with a single accent marker on the active section. */
 .right-sidebar {
-  width: var(--apple-toc-width);
   border-inline-start: 0;
-  background: transparent;
+  background: var(--apple-background);
+  scrollbar-width: none;
 }
 .right-sidebar-panel {
-  padding-top: 2.5rem;
+  padding: 2.5rem 1.25rem 2rem 0.5rem;
 }
 .right-sidebar-panel .sl-container {
+  width: auto;
   max-width: none;
 }
-.right-sidebar h2 {
-  margin-bottom: 0.625rem;
+
+starlight-toc h2 {
+  margin-bottom: 0.75rem;
   color: var(--apple-foreground);
-  font-size: 0.75rem;
+  font-size: 0.8125rem;
   font-weight: 600;
-  line-height: 1rem;
-  letter-spacing: 0.01em;
-}
-.right-sidebar ul {
-  border-inline-start: 0;
-}
-.right-sidebar ul ul {
-  padding-inline-start: 0.75rem;
-}
-.right-sidebar a {
-  margin-block: 0;
-  padding: 0.25rem 0.75rem;
-  border-inline-start: 1px solid var(--apple-hairline);
-  color: var(--apple-secondary-foreground);
-  font-size: 0.875rem;
   line-height: 1.125rem;
+  letter-spacing: -0.008em;
+}
+starlight-toc nav > ul {
+  border-inline-start: 1px solid var(--apple-hairline);
+}
+starlight-toc a {
+  margin-inline-start: -1px;
+  padding-block: 0.3125rem;
+  padding-inline: calc(0.75rem * var(--depth) + 0.875rem) 0;
+  border-radius: 0;
+  border-inline-start: 2px solid transparent;
+  color: var(--apple-secondary-foreground);
+  font-size: 0.8125rem;
+  line-height: 1.125rem;
+  letter-spacing: -0.008em;
+  text-decoration: none;
   overflow-wrap: anywhere;
 }
-.right-sidebar a span {
-  white-space: normal;
+starlight-toc a:hover {
+  color: var(--apple-foreground);
 }
-.right-sidebar a:hover {
-  color: var(--apple-link);
-}
-.right-sidebar a:focus-visible {
-  border-radius: 2px;
-  color: var(--apple-link);
-  outline-offset: 2px;
-}
-.right-sidebar a[aria-current="true"] {
+starlight-toc a[aria-current="true"] {
   border-inline-start-color: var(--apple-link);
-  color: var(--apple-link);
-  font-weight: 500;
+  color: var(--apple-foreground);
+  font-weight: 600;
+}
+starlight-toc a:focus-visible {
+  outline-offset: -2px;
 }
 
-mobile-starlight-toc > nav {
-  border-block: 1px solid var(--apple-hairline);
-  background: var(--apple-header-background);
-  -webkit-backdrop-filter: saturate(180%) blur(20px);
-  backdrop-filter: saturate(180%) blur(20px);
+/* Narrow layouts: Starlight’s collapsible “On this page” bar under the header. */
+mobile-starlight-toc nav {
+  border-bottom: 1px solid var(--apple-hairline);
+  background: var(--apple-background);
 }
 mobile-starlight-toc summary {
   color: var(--apple-secondary-foreground);
   font-size: 0.8125rem;
 }
 mobile-starlight-toc .toggle {
-  min-height: 2.25rem;
-  border-color: transparent;
-  border-radius: var(--apple-radius-sm);
-  background: transparent;
+  border: 0;
+  border-radius: 980px;
+  background: var(--apple-fill-secondary);
+  color: var(--apple-foreground);
 }
 mobile-starlight-toc details[open] .toggle,
 mobile-starlight-toc .toggle:hover {
-  border-color: transparent;
-  background: var(--apple-active-surface);
+  border: 0;
+  background: var(--apple-fill);
+  color: var(--apple-foreground);
+}
+mobile-starlight-toc .display-current {
   color: var(--apple-foreground);
 }
 mobile-starlight-toc .dropdown {
-  border-color: var(--apple-hairline);
+  border: 1px solid var(--apple-hairline);
+  border-radius: 0 0 var(--apple-radius-panel) var(--apple-radius-panel);
   background: var(--apple-background);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  box-shadow: var(--sl-shadow-lg);
+}
+mobile-starlight-toc .dropdown a {
+  border-color: var(--apple-hairline);
+  color: var(--apple-foreground);
+  overflow-wrap: anywhere;
 }

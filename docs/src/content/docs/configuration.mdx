@@ -1,0 +1,68 @@
+---
+title: Configuration
+description: Optional header, footer, and link settings.
+---
+
+The theme works without options. Pass an object to `starlightThemeApple()` only when you want header links, an emphasized action, footer links, or extra attributes on social links.
+
+```js title="astro.config.mjs"
+starlightThemeApple({
+  nav: [
+    { label: "Install", link: "/installation/" },
+    { label: "Guides", link: "/guides/" },
+    { label: "Reference", link: "/reference/" },
+  ],
+  socialAttrs: {
+    github: { "data-analytics": "github-link" },
+  },
+  footer: {
+    links: [
+      { label: "Sponsor", link: "https://github.com/sponsors/example", icon: "heart" },
+    ],
+  },
+});
+```
+
+## Links
+
+Every link option uses the same shape:
+
+| Property | Type | Description |
+| --- | --- | --- |
+| `label` | `string` | Visible text. |
+| `link` | `string` | A URL, or a path starting with `/` that is resolved against Astro’s `base`. |
+| `icon` | `StarlightIcon` | Optional [Starlight icon](https://starlight.astro.build/reference/icons/) shown before the label. |
+| `attrs` | `Record<string, string \| number \| boolean>` | Optional HTML attributes, such as analytics `data-*` attributes. |
+
+A header link is marked current, with `aria-current`, when the page is its target or below it.
+
+## Header
+
+- `nav` adds primary links after the site title. On screens narrower than 50rem they move to the top of the navigation menu, so they remain available on every page.
+- `action` adds one emphasized pill button, such as “Download”. Use it sparingly.
+
+## Footer
+
+The full-width site footer sits below the article and its previous/next navigation. Navigation columns appear only when `footer.groups` is configured.
+
+- `footer.groups` supplies explicit columns: `{ label: "Resources", links: [{ label: "Guides", link: "/guides/" }] }`.
+- `footer.links` adds supporting links to the footer’s bottom row.
+- `footer.copyright` replaces the site title in the bottom row with a short line of text.
+
+The theme provides a `PageFrame` wrapper around Starlight’s native frame to place this footer outside the article columns. If you override `PageFrame`, you own that outer composition.
+
+The edit link, last-updated date, and previous and next links use Starlight’s own settings, such as [`editLink`](https://starlight.astro.build/reference/configuration/#editlink), [`lastUpdated`](https://starlight.astro.build/reference/configuration/#lastupdated), and [`pagination`](https://starlight.astro.build/reference/configuration/#pagination).
+
+## Social links
+
+Social icons come from Starlight’s [`social`](https://starlight.astro.build/reference/configuration/#social) setting. `socialAttrs` adds HTML attributes to them, keyed by icon name:
+
+```js
+starlightThemeApple({
+  socialAttrs: { discord: { "data-analytics": "discord" } },
+});
+```
+
+## Appearance
+
+The header shows Starlight’s own appearance control as a single icon button. It keeps the native menu with Light, Dark, and Auto, remembers the choice, and follows the system setting in Auto. To replace it, override Starlight’s [`ThemeSelect`](https://starlight.astro.build/reference/overrides/#themeselect) component.
