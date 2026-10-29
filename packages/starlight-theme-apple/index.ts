@@ -28,7 +28,8 @@ const themeComponents = {
   SocialIcons: component("SocialIcons"),
   PageTitle: component("PageTitle"),
   Footer: component("Footer"),
-  Pagination: component("Pagination"),
+  EditLink: component("Empty"),
+  Pagination: component("Empty"),
 };
 
 function configIntegration(
@@ -41,6 +42,7 @@ function configIntegration(
     hooks: {
       "astro:config:setup"({ updateConfig }) {
         updateConfig({
+
           vite: {
             plugins: [
               {
@@ -52,6 +54,7 @@ function configIntegration(
                     : undefined,
               },
             ],
+
           },
         });
       },
