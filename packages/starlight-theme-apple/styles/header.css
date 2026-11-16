@@ -91,7 +91,7 @@
 
 /* Icon buttons share one 32px circular hit area. */
 .apple-social-link,
-.apple-header starlight-theme-select label {
+.apple-theme-toggle {
   display: inline-grid;
   place-items: center;
   width: 2rem;
@@ -102,7 +102,7 @@
   color: var(--apple-secondary-foreground);
 }
 .apple-social-link:hover,
-.apple-header starlight-theme-select label:hover {
+.apple-theme-toggle:hover {
   background: var(--apple-fill-secondary);
   color: var(--apple-foreground);
 }
@@ -111,48 +111,21 @@
   height: 1.0625rem;
 }
 
-/*
- * Appearance: Starlight’s native theme <select> rendered as an icon button. The select keeps
- * its accessible name, keyboard behavior, persistence, and the system (“Auto”) option; the
- * icon reflects the current choice.
- */
-.apple-header starlight-theme-select label {
-  position: relative;
-}
-.apple-header starlight-theme-select label::before {
-  content: "";
-  width: 1.0625rem;
-  height: 1.0625rem;
-  background: currentColor;
-  -webkit-mask: var(--apple-appearance-icon) center / contain no-repeat;
-  mask: var(--apple-appearance-icon) center / contain no-repeat;
-  --apple-appearance-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M10 1.5a8.5 8.5 0 1 0 0 17 8.5 8.5 0 0 0 0-17Zm0 1.5v14a7 7 0 0 1 0-14Z'/%3E%3C/svg%3E");
-}
-.apple-header
-  starlight-theme-select:has(option[value="light"]:checked)
-  label::before {
-  --apple-appearance-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Ccircle cx='10' cy='10' r='3.6'/%3E%3Cpath d='M10 1v2.2M10 16.8V19M1 10h2.2M16.8 10H19M3.64 3.64l1.55 1.55M14.81 14.81l1.55 1.55M3.64 16.36l1.55-1.55M14.81 5.19l1.55-1.55' stroke='%23000' stroke-width='1.6' stroke-linecap='round'/%3E%3C/svg%3E");
-}
-.apple-header
-  starlight-theme-select:has(option[value="dark"]:checked)
-  label::before {
-  --apple-appearance-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M8.1 1.7a7 7 0 0 0 10.2 10.2A8.5 8.5 0 1 1 8.1 1.7Z'/%3E%3C/svg%3E");
-}
-.apple-header starlight-theme-select :is(.label-icon, .caret) {
-  display: none;
-}
-.apple-header starlight-theme-select select {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  opacity: 0;
-  font-size: 1rem;
+/* Appearance follows the active theme, including the initial system preference. */
+.apple-theme-toggle {
+  border: 0;
+  background: transparent;
   cursor: pointer;
 }
-.apple-header starlight-theme-select label:has(select:focus-visible) {
+.apple-theme-toggle svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+:root[data-theme="light"] .apple-theme-toggle__dark,
+:root[data-theme="dark"] .apple-theme-toggle__light {
+  display: none;
+}
+.apple-theme-toggle:focus-visible {
   outline: 2px solid var(--apple-link);
   outline-offset: 1px;
 }

@@ -23,6 +23,7 @@ const component = (name: string) =>
 /** Components the theme provides. Consumer and earlier-plugin overrides always win. */
 const themeComponents = {
   Header: component("Header"),
+  ThemeSelect: component("ThemeSelect"),
   PageFrame: component("PageFrame"),
   Sidebar: component("Sidebar"),
   SocialIcons: component("SocialIcons"),
