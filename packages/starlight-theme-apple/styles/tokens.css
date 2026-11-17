@@ -11,12 +11,12 @@
   color-scheme: dark;
 
   /* Palette (dark appearance) */
-  --apple-background: #000;
+  --apple-background: #0d0d0f;
   --apple-secondary-background: #1d1d1f;
-  --apple-code-background: #1d1d1f;
+  --apple-code-background: #2c2c2e;
   --apple-fill: #333336;
   --apple-fill-secondary: #1d1d1f;
-  --apple-foreground: #f5f5f7;
+  --apple-foreground: #e8e8ed;
   --apple-secondary-foreground: #a1a1a6;
   --apple-tertiary-foreground: #86868b;
   --apple-hairline: #424245;

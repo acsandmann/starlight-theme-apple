@@ -137,8 +137,8 @@ export const xcodeLight = xcodeTheme("apple-xcode-light", "light", {
 });
 
 export const xcodeDark = xcodeTheme("apple-xcode-dark", "dark", {
-  background: "#1d1d1f",
-  foreground: "#f5f5f7",
+  background: "#2c2c2e",
+  foreground: "#e8e8ed",
   comment: "#7f8c98",
   keyword: "#ff7ab2",
   string: "#ff8170",

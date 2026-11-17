@@ -500,7 +500,7 @@ starlight-file-tree .highlight .tree-entry {
   text-decoration: underline;
 }
 
-/* Site navigation lives outside the article columns, across the whole page. */
+/* Site navigation sits below the page content and sidebar. */
 .apple-site-footer {
   position: relative;
   border-top: 1px solid var(--apple-hairline);
@@ -568,12 +568,6 @@ starlight-file-tree .highlight .tree-entry {
 .apple-site-footer svg {
   width: 0.875rem;
   height: 0.875rem;
-}
-@media (min-width: 50rem) {
-  .apple-site-footer {
-    /* Cover the fixed navigator only as the footer enters the viewport. */
-    z-index: calc(var(--sl-z-index-menu) + 1);
-  }
 }
 @media print {
   .apple-site-footer {
